@@ -13,7 +13,8 @@
     "pages/openapi/cloudid/cloudid",
     "pages/im/im",
     "pages/im/room/room",
-    "subpages/postpage/index"
+    "subpages/postpage/index",
+    "subpages/createpost/index"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
