@@ -1,26 +1,54 @@
 {
   "pages": [
+    "pages/home/index",
+    "pages/schedule/index",
+    "pages/group/index",
+    "pages/viewschedule/index",
     "pages/index/index",
-    "pages/userConsole/userConsole",
-    "pages/storageConsole/storageConsole",
-    "pages/databaseGuide/databaseGuide",
-    "pages/addFunction/addFunction",
-    "pages/deployFunctions/deployFunctions",
-    "pages/chooseLib/chooseLib",
-    "pages/openapi/openapi",
-    "pages/openapi/serverapi/serverapi",
-    "pages/openapi/callback/callback",
-    "pages/openapi/cloudid/cloudid",
-    "pages/im/im",
-    "pages/im/room/room",
     "subpages/postpage/index",
-    "subpages/createpost/index"
+    "subpages/createpost/index",
+    "pages/mine/index",
+    "pages/login/index",
+    "custom-tab-bar/index"
   ],
+  "tabBar": {
+    "custom": true,
+    "color": "#B1B3BA",
+    "selectedColor": "#6493DF",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "iconPath": "images/home_blue.png",
+        "selectedIconPath": "images/home_blue.png",
+        "text": "Home"
+      },
+      {
+        "pagePath": "pages/schedule/index",
+        "iconPath": "images/schedule_blue.png",
+        "selectedIconPath": "images/schedule_blue.png",
+        "text": "Schedule"
+      },
+      {
+        "pagePath": "pages/group/index",
+        "iconPath": "images/group_grey.png",
+        "selectedIconPath": "images/group_grey.png",
+        "text": "Group"
+      },
+      {
+        "pagePath": "pages/mine/index",
+        "iconPath": "images/mine_grey.png",
+        "selectedIconPath": "images/mine_grey.png",
+        "text": "Mine"
+      }
+    ]
+  },
   "window": {
-    "backgroundColor": "#F6F6F6",
+    "backgroundColor": "#ffffff",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "云开发 QuickStart",
+    "navigationBarTitleText": "UofT Schedule Tool",
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json",

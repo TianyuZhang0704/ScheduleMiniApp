@@ -1,0 +1,54 @@
+/* miniprogram/pages/mine/index.wxss */
+
+.banner {
+  position: absolute;
+  width: 750rpx;
+  height: 367rpx;
+  top: -10rpx;
+  left: 0;
+}
+.userinfo {
+  position: absolute;
+  top: 269rpx;
+  display: flex;
+  margin-left: 92rpx;
+  z-index: 5;
+}
+
+.avatar-outer {
+  width: 160rpx;
+  height: 160rpx;
+  background: #ffffff;
+  border-radius: 50%;
+}
+
+.user-avatar {
+  width: 130rpx;
+  height: 130rpx;
+  margin-top: 15rpx;
+  margin-left: 15rpx;
+  border-radius: 50%;
+}
+
+.user-nickname {
+  width: 383rpx;
+  height: 114rpx;
+  margin-top: 87rpx;
+  margin-left: 23rpx;
+  text-overflow: ellipsis;
+  overflow:hidden;
+  white-space:nowrap;
+  font-family: Arial;
+  font-size: 40rpx;
+  font-weight: 700;
+  line-height: 55.2rpx;
+}
+
+.content-ctn {
+  position: absolute;
+  top: 320rpx;
+  width: 750rpx;
+  height: 1015rpx;
+  background: #ffffff;
+  border-radius: 50rpx 50rpx 0 0;
+}

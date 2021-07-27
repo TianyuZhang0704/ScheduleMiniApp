@@ -1,0 +1,5 @@
+<!--miniprogram/pages/login/index.wxml-->
+<!-- <view class="login-ctn" bindtap="onClick">Authorize</view> -->
+<view wx:if="{{ !logged }}">
+  <button class="login-btn" open-type="getUserInfo" bindgetuserinfo="onGoUserInfo">Authorize</button>
+</view>

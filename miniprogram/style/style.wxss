@@ -1,0 +1,7 @@
+Page {
+  background: #ffffff;
+}
+
+view {
+  border: none;
+}

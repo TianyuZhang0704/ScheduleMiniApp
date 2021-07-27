@@ -1,0 +1,9 @@
+<!--miniprogram/pages/mine/index.wxml-->
+<image class="banner" src="../../images/mine-banner.png"></image>
+<view class="userinfo">
+  <view class="avatar-outer">
+    <image class="user-avatar" src="{{ avatarUrl }}"></image>
+  </view>
+  <view class="user-nickname">{{ nickName }}</view>
+</view>
+<view class="content-ctn"></view>
