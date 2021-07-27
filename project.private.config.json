@@ -27,6 +27,12 @@
         {
           "name": "pages/mine/index",
           "pathName": "pages/mine/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/viewschedule/index",
+          "pathName": "pages/viewschedule/index",
           "scene": null
         }
       ]

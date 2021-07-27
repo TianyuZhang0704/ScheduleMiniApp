@@ -26,7 +26,13 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow: function () {
-
+    if (typeof this.getTabBar === 'function' &&
+      this.getTabBar()) {
+      console.log('设置选中项 3')
+      this.getTabBar().setData({
+        selected: 3
+      })
+    }
   },
 
   /**

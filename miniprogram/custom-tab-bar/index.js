@@ -6,13 +6,13 @@ Component({
     selectedColor: "#6493DF",
     list: [{
       pagePath: "/pages/home/index",
-      iconPath: "../images/home_blue.png",
+      iconPath: "../images/home_grey.png",
       selectedIconPath: "../images/home_blue.png",
       text: "Home",
       isSpecial: false
     }, {
       pagePath: "/pages/schedule/index",
-      iconPath: "../images/schedule_blue.png",
+      iconPath: "../images/schedule_grey.png",
       selectedIconPath: "../images/schedule_blue.png",
       text: "Schedule",
       isSpecial: false
@@ -25,13 +25,13 @@ Component({
     }, {
       pagePath: "/pages/group/index",
       iconPath: "../images/group_grey.png",
-      selectedIconPath: "../images/group_grey.png",
+      selectedIconPath: "../images/group_blue.png",
       text: "Group",
       isSpecial: false
     }, {
       pagePath: "/pages/mine/index",
       iconPath: "../images/mine_grey.png",
-      selectedIconPath: "../images/mine_grey.png",
+      selectedIconPath: "../images/mine_blue.png",
       text: "Mine",
       isSpecial: false
     }],

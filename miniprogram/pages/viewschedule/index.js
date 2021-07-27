@@ -5,14 +5,30 @@ Page({
    * Page initial data
    */
   data: {
-
+    avatarUrl: '',
+    tab: 0
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
+    let ui = wx.getStorageSync('userInfo');
+    this.setData({
+      avatarUrl: ui.avatarUrl
+    })
+  },
 
+  switchTab: function() {
+    this.setData({
+      tab: this.data.tab == 0 ? 1 : 0
+    })
+  },
+
+  onBack: function() {
+    wx.navigateBack({
+      delta: 0,
+    })
   },
 
   /**

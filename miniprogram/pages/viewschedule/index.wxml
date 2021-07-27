@@ -1,2 +1,17 @@
 <!--miniprogram/pages/viewschedule/index.wxml-->
-<text>miniprogram/pages/viewschedule/index.wxml</text>
+<image class="arrow" src="../../images/Arrow.png" bindtap="onBack"></image>
+<image class="user-avatar" src="{{ avatarUrl }}"></image>
+<view class="schedule-preview">Schedule Preview</view>
+<view class="ctn">
+  <image class="bg" src="../../images/view-schedule-bg.png"></image>
+  <view class="tabs">
+    <view class="tab fall-tab" bindtap="switchTab">
+      <view class="tab-title" style="color: {{tab == 0 ? '#FFD35A' : '#E8F1FF'}}">Fall 2021</view>
+      <view class="tab-line fall-line" style="background: {{tab == 0 ? '#FFD35A' : '#E8F1FF'}}"></view>
+    </view>
+    <view class="tab winter-tab" bindtap="switchTab">
+      <view class="tab-title" style="color: {{tab == 1 ? '#FFD35A' : '#E8F1FF'}}">Winter 2022</view>
+      <view class="tab-line winter-line" style="background: {{tab == 1 ? '#FFD35A' : '#E8F1FF'}}"></view>
+    </view>
+  </view>
+</view>
