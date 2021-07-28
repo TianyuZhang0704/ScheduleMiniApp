@@ -14,6 +14,19 @@ Page({
   },
 
   onLoad: function() {
+    wx.request({
+      url: 'https://timetable.iit.artsci.utoronto.ca/api/20209/courses?',
+      data: { 
+        code: "csc108" 
+      // code: "CSC108" 大小写都可以 
+      // title: "Introduction to Computer Programming" 
+      },
+      header: { 'content-type': 'application/json' // 默认值 
+      }, 
+      success (res) { 
+      console.log(res.data) } 
+    })
+    
     if (!wx.cloud) {
       wx.redirectTo({
         url: '../chooseLib/chooseLib',
