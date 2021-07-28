@@ -7,7 +7,8 @@ Page({
    */
   data: {
     userInfo: {},
-    openid: ''
+    openid: '',
+    showMask: false
   },
 
   /**
@@ -16,17 +17,29 @@ Page({
   onLoad: function (options) {
     const ui = wx.getAccountInfoSync("userInfo");
     this.setData({
-      openid: ui.openid,
       openid: ui.openid
     })
     console.log(this.data.openid);
   },
 
-  onGoUserInfo: function (e) {
+  onClick: function(e) {
     this.setData({
-      userInfo: e.detail.userInfo
+      userInfo: e.detail.userInfo,
+      showMask: true
     })
-    console.log("userinfo: ", this.data.userInfo);
+  },
+
+  onCancel: function(e) {
+    this.setData({
+      showMask: false
+    })
+  },
+
+  onGoUserInfo: function (e) {
+    // this.setData({
+    //   userInfo: e.detail.userInfo
+    // })
+    // console.log("userinfo: ", this.data.userInfo);
     let that = this;
     if (!this.data.logged) {
       wx.cloud.callFunction({
@@ -36,7 +49,7 @@ Page({
           that.setData({
             logged: true,
             openid: res.result.openid,
-            userInfo: e.detail.userInfo
+            // userInfo: e.detail.userInfo
           })
           that.data.userInfo.openid = that.data.openid;
           wx.setStorageSync('userInfo', that.data.userInfo);

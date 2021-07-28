@@ -1,5 +1,24 @@
 <!--miniprogram/pages/login/index.wxml-->
 <!-- <view class="login-ctn" bindtap="onClick">Authorize</view> -->
 <view wx:if="{{ !logged }}">
-  <button class="login-btn" open-type="getUserInfo" bindgetuserinfo="onGoUserInfo">Authorize</button>
+  <button class="login-btn" open-type="getUserInfo" bindgetuserinfo="onClick" style="width:500rpx;">
+    <view class="btn-txt">LOG IN WITH WECHAT</view>
+  </button>
+  <view class="mask" hidden="{{ !showMask }}">
+    <view class="info-container">
+      <view class="app-info">
+        <view class="app-logo"></view>
+        <view class="app-name">UofT Course Scheduler</view>
+      </view>
+      <view class="ask">would like to access your nickname and avatar</view>
+      <view class="user-info">
+        <image class="user-avatar" src="{{ userInfo.avatarUrl }}"></image>
+        <view class="user-name">{{ userInfo.nickName }}</view>
+      </view>
+      <view class="btns">
+        <view class="cancel-btn" bindtap="onCancel">Cancel</view>
+        <view class="authorize-btn" bindtap="onGoUserInfo">Authorize</view>
+      </view>
+    </view>
+  </view>
 </view>

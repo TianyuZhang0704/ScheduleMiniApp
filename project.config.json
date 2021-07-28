@@ -38,7 +38,7 @@
     "minifyWXSS": true
   },
   "appid": "wxb0903a14109f5843",
-  "projectname": "ScheduleAppCloud",
+  "projectname": "UofT Course Scheduler",
   "libVersion": "2.14.1",
   "condition": {
     "search": {
