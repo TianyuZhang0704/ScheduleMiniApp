@@ -33,6 +33,12 @@
         {
           "name": "pages/viewschedule/index",
           "pathName": "pages/viewschedule/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/schedule/index",
+          "pathName": "pages/schedule/index",
           "scene": null
         }
       ]

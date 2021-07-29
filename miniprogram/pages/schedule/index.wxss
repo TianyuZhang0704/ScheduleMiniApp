@@ -1,1 +1,92 @@
 /* miniprogram/pages/schedule/index.wxss */
+.top-div {
+  width: 750rpx;
+  height: 154rpx;
+}
+
+.search-ctn {
+  position: absolute;
+  top: 50rpx;
+  width: 540rpx;
+  display: flex;
+}
+
+.section-text {
+  margin-left: 30rpx;
+  font-family: Aral;
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #000000;
+  line-height: 60rpx;
+}
+
+.section-triangle {
+  margin-left: 15rpx;
+  width: 0;
+  height: 0;
+  margin-top: 28rpx;
+  border-left: 10rpx solid transparent;
+  border-right: 10rpx solid transparent;
+  border-top: 10rpx solid #000000;
+}
+
+.search-bar {
+  margin-left: 30rpx;
+  width: 470rpx;
+  height: 60rpx;
+  background: #f2f2f2;
+  border-radius: 50px;
+  display: flex;
+}
+
+.search-icon {
+  margin-top: 12rpx;
+  margin-left: 20rpx;
+}
+
+.searchbar-txt {
+  margin-left: 15rpx;
+  margin-top: 8rpx;
+  height: 25rpx;
+  font-family: Arial;
+  font-size: 28rpx;
+  line-height: 25rpx;
+}
+
+.search-confirm {
+  color: #6493DF;
+  font-family: Arial;
+  font-size: 30rpx;
+  line-height: 60rpx;
+  margin-right: 20rpx;
+}
+
+.selection-box-triangle {
+  position: absolute;
+  top: -20rpx;
+  left: 30rpx;
+  width: 0;
+  height: 0;
+  border-left: 15rpx solid transparent;
+  border-right: 15rpx solid transparent;
+  border-bottom: 20rpx solid #f2f2f2;
+  z-index: 5;
+}
+
+.selection-box {
+  position: absolute;
+  padding-top: 20rpx;
+  width: 155rpx;
+  height: 175rpx;
+  top: 134rpx;
+  left: 30rpx;
+  background: #f2f2f2;
+  border-radius: 20rpx;
+  z-index: 5;
+}
+
+.selection-txt {
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 28rpx;
+}

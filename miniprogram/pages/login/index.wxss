@@ -8,6 +8,14 @@
   border-radius: 47rpx;
 }
 
+.wechat-icon {
+  position: absolute;
+  left: 40rpx;
+  top: 28rpx;
+  width: 53.72rpx;
+  height: 40.82rpx;
+}
+
 .btn-txt {
   color: #ffffff;
   font-family: Arial;
@@ -18,17 +26,7 @@
   height: 32rpx;
   line-height: 28rpx;
   margin-top: 18rpx;
-  margin-left: 55rpx;
-}
-
-.mask {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0rpx;
-  top: 0rpx;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 2;
+  margin-left: 58rpx;
 }
 
 .info-container {

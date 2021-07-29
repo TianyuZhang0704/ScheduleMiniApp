@@ -2,6 +2,7 @@
 <!-- <view class="login-ctn" bindtap="onClick">Authorize</view> -->
 <view wx:if="{{ !logged }}">
   <button class="login-btn" open-type="getUserInfo" bindgetuserinfo="onClick" style="width:500rpx;">
+   <image class="wechat-icon" src="../../images/wechat.png"></image>
     <view class="btn-txt">LOG IN WITH WECHAT</view>
   </button>
   <view class="mask" hidden="{{ !showMask }}">

@@ -1,2 +1,18 @@
 <!--miniprogram/pages/schedule/index.wxml-->
-<text>miniprogram/pages/schedule/index.wxml</text>
+<view class="top-div">
+  <view class="search-ctn">
+    <view class="section-text" bindtap="onChangeSection">{{ tab == -1 ? 'Year' : tab == 0 ? 'Fall' : 'Winter'}}</view>
+    <view class="section-triangle" bindtap="onChangeSection"></view>
+    <view class="search-bar">
+      <icon class="search-icon" type="search" size="18" color="#B1B3BA"></icon>
+      <input class="searchbar-txt" model:value="{{ inputVal }}" placeholder="Search here..." confirm-type="search" bindconfirm="onSearch"></input>
+      <view class="search-confirm" hidden="{{ inputVal == '' }}" bindtap="onSearch">Search</view>
+    </view>
+  </view>
+</view>
+<view class="selection-box" hidden="{{ !showSelection }}">
+  <view class="selection-box-triangle"></view> 
+  <view class="section-text selection-txt" bindtap="chooseFall">Fall</view>
+  <view class="section-text selection-txt" bindtap="chooseWinter">Winter</view>
+  <view class="section-text selection-txt" bindtap="chooseYear">Year</view>
+</view>
