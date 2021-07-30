@@ -27,7 +27,8 @@ exports.main = async (event, context, openid, avatarUrl, nickName) => {
         data: {
           openId: openid,
           avatarUrl: avatarUrl,
-          nickName: nickName
+          nickName: nickName,
+          savedSchedules: []
         }
       })
     }
