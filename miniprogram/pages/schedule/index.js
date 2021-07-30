@@ -5,34 +5,28 @@ Page({
    * Page initial data
    */
   data: {
-    tab: -1,
+    tab: -1,    // -1: year, 0: fall, 1: winter
     showSelection: false,
     inputVal: '',
-    courses: [
-      {
-        name: "CSC104H1-S-20209",
-        code: "CSC104H1",
-        courseTitle: "Computational Thinking",
-        section: "S"
-      }, {
-        name: "CSC108H1-S-20209",
-        code: "CSC108H1",
-        courseTitle: "Introduction to Computer Programming",
-        section: "S"
-      }, {
-        name: "CSC111H1-S-20209",
-        code: "CSC111H1",
-        courseTitle: "Foundations of Computer Science II",
-        section: ""
-      }
-    ]
+    statusHeight: 0,
+    sectionType: 0,    // 0: fall, 1: winter
+    courses: []
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    
+    let that = this
+    wx.getSystemInfo({
+      success (res) {
+        let top = wx.getMenuButtonBoundingClientRect().top;
+        that.setData({
+          statusHeight: res.statusBarHeight + top + 6
+        })
+        console.log(that.data.statusHeight)
+      }
+    })
   },
 
   onChangeSection: function() {
@@ -66,6 +60,24 @@ Page({
     })
   },
 
+  onChangeFall: function() {
+    this.setData({
+      sectionType: 0
+    })
+  },
+
+  onChangeWinter: function() {
+    this.setData({
+      sectionType: 1
+    })
+  },
+
+  viewCurrentSchedule: function() {
+    wx.navigateTo({
+      url: '/pages/viewschedule/index',
+    })
+  },
+
   onSearch: function() {
     // if (this.data.tab == -1) {
     //   wx.showToast({
@@ -89,6 +101,19 @@ Page({
       header: { 'content-type': 'application/json' // 默认值 
       }, 
       success (res) { 
+        let courses= [];
+        let name;
+        for (name in res.data) {
+          let courseItem = {};
+          courseItem.name = name;
+          courseItem.code = res.data[name].code;
+          courseItem.courseTitle = res.data[name].courseTitle;
+          courseItem.section = res.data[name].section;
+          courses.push(courseItem);
+        }
+        that.setData({
+          courses: courses
+        })
         wx.hideLoading();
         console.log(res.data)
       } 

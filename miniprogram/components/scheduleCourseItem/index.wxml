@@ -1,0 +1,8 @@
+<!--components/scheduleCourseList/index.wxml-->
+<view class="course-item">
+  <view class="title">
+    <text class="title-txt" decode="{{true}}">{{ courseItem.code }}&nbsp;&nbsp;{{ courseItem.courseTitle }}</text>
+  </view>
+  <view class="section">Section: {{ courseItem.section }}</view>
+  <view class="add">Add</view>
+</view>

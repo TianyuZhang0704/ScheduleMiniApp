@@ -1,4 +1,5 @@
 // miniprogram/pages/home/index.js
+const app = getApp();
 Page({
 
   /**
@@ -12,12 +13,11 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    if (!wx.getStorageSync('isLoggedIn')) {
+    if (!app.globalData.isLoggedIn) {
       wx.navigateTo({
-        url: '../login/index',
+        url: '/pages/login/index',
       })
     }
-
   },
 
   /**
