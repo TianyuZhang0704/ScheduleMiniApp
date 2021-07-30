@@ -53,7 +53,7 @@ Page({
           })
           that.data.userInfo.openid = that.data.openid;
           wx.setStorageSync('userInfo', that.data.userInfo);
-          wx.getStorageSync('isLoggedIn', true);
+          app.globalData.isLoggedIn = true;
           wx.navigateBack({
             delta: 1
           })

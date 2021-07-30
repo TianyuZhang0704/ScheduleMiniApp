@@ -1,7 +1,7 @@
 <!--miniprogram/pages/schedule/index.wxml-->
 <view class="top-div">
-  <view class="search-ctn">
-    <view class="section-text" bindtap="onChangeSection">{{ tab == -1 ? 'Year' : tab == 0 ? 'Fall' : 'Winter'}}</view>
+  <view class="search-ctn" style="top: {{ statusHeight }}rpx">
+    <view class="section-text" bindtap="onChangeSection">{{ tab == -1 ? 'Any' : tab == 0 ? 'Fall' : 'Winter'}}</view>
     <view class="section-triangle" bindtap="onChangeSection"></view>
     <view class="search-bar">
       <icon class="search-icon" type="search" size="18" color="#B1B3BA"></icon>
@@ -14,5 +14,31 @@
   <view class="selection-box-triangle"></view> 
   <view class="section-text selection-txt" bindtap="chooseFall">Fall</view>
   <view class="section-text selection-txt" bindtap="chooseWinter">Winter</view>
-  <view class="section-text selection-txt" bindtap="chooseYear">Year</view>
+  <view class="section-text selection-txt" bindtap="chooseYear">Any</view>
+</view>
+<view class="tab-row">
+  <view class="tab-row-txt my-courses">My Courses</view>
+  <view class="tab-row-txt tab-row-fall" style="color: {{ sectionType == 0 ? '#6493DF' : '#B1B3BA'}};" bindtap="onChangeFall">
+    Fall
+    <view class="tab-line" style="background: {{ sectionType == 0 ? '#6493DF' : '#B1B3BA'}};"></view>
+  </view>
+  <view class="tab-row-txt tab-row-winter" style="color: {{ sectionType == 1 ? '#6493DF' : '#B1B3BA'}};" bindtap="onChangeWinter">
+    Winter
+    <view class="tab-line" style="background: {{ sectionType == 1 ? '#6493DF' : '#B1B3BA'}};"></view>
+  </view>
+</view>
+<view class="my-couses-ctn"></view>
+<view class="links">
+  <view class="view-current-schedule" bindtap="viewCurrentSchedule">View Current Schedule</view>
+  <view class="auto-schedule">Auto Schedule</view>
+</view>
+<view class="search-result-ctn">
+  <view class="search-result-title">Search Result</view>
+  <view class="search-course-list">
+    <schedule-course-item 
+    wx:for="{{ courses }}"
+    wx:for-item="course"
+    wx:key="course"
+    courseItem="{{ course }}"/>
+  </view>
 </view>

@@ -1,12 +1,39 @@
-# 云开发 quickstart
+# UofT Course Scheduler
 
-这是云开发的快速启动指引，其中演示了如何上手使用云开发的三大基础能力：
 
-- 数据库：一个既可在小程序前端操作，也能在云函数中读写的 JSON 文档型数据库
-- 文件存储：在小程序前端直接上传/下载云端文件，在云开发控制台可视化管理
-- 云函数：在云端运行的代码，微信私有协议天然鉴权，开发者只需编写业务逻辑代码
 
-## 参考文档
+## General Description
 
-- [云开发文档](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started.html)
+A WeChat Mini App for UofT students to manage their courses and discuss with their classmates online. It is designed to help students save time when they schedule their courses and get in touch with other students, which is especially useful during the pandemic.
+
+Major functions include: 
+
+- Searching courses offered by the university for the upcoming school year
+- Providing course list to generate recommended schedule plan with minimum schedule conflict
+- Providing a forum for students to ask questions, dicuss, and read official tips for all the courses offered for the upcoming school year
+- Viewing the saved schedule
+
+
+
+## Directory Description
+
+cloudfunctions       // WeChat cloud functions
+
+miniprogram          // Componenets, pages, etc. Frontend
+
+scrape                   // Python scrape
+
+
+
+## Compile
+
+Use WeChat Devtools to compile (Ordinary Compilation). 
+
+Test appID can be used, but to use our environment, contact our group members for our appID.
+
+
+
+## Notice
+
+Do not make any modification directly on main branch. Merge other branches on main.
 
