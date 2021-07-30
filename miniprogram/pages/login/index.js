@@ -57,6 +57,19 @@ Page({
           wx.navigateBack({
             delta: 1
           })
+          wx.cloud.callFunction ({
+            name: 'storeUser',
+            data: {
+              avatarUrl: this.data.userInfo.avatarUrl,
+              nickName: this.data.userInfo.nickName
+            },
+            fail: res => {
+              console.log("storeUser 请求失败",res);
+            },
+            success: res => {
+              console.log("storeUser 请求成功", res);
+            }
+          })
         },
         fail: err => {
           console.log('[Cloud function] [login] Call failed', err);
