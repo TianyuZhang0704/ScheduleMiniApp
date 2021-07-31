@@ -78,6 +78,14 @@ Page({
     })
   },
 
+  onClearInput: function() {
+    console.log("clear")
+    this.setData({
+      inputVal: '',
+      courses: []
+    })
+  },
+
   onSearch: function() {
     // if (this.data.tab == -1) {
     //   wx.showToast({
@@ -91,7 +99,7 @@ Page({
       title: 'Searching...',
     })
     wx.request({
-      url: 'https://timetable.iit.artsci.utoronto.ca/api/20209/courses',
+      url: 'https://timetable.iit.artsci.utoronto.ca/api/20219/courses',
       data: { 
         code: that.data.inputVal,
         section: that.data.section ? that.data.section : '',

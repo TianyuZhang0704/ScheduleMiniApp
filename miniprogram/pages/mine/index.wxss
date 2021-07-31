@@ -52,3 +52,36 @@
   background: #ffffff;
   border-radius: 50rpx 50rpx 0 0;
 }
+
+.functions {
+  position: absolute;
+  top: 190rpx;
+  left: 90rpx;
+  font-family: Arial;
+  font-size: 34rpx;
+  font-weight: 600;
+}
+
+.icons-ctn {
+  position: absolute;
+  top: 200rpx;
+  width: 670rpx;
+  margin-left: 110rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.icons {
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 143rpx;
+  margin-top: 100rpx;
+}
+
+.map-icon {
+  height: 75rpx;
+}
+
+.edit-icon {
+  height: 75rpx;
+}

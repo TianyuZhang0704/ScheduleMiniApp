@@ -39,6 +39,18 @@
         {
           "name": "pages/schedule/index",
           "pathName": "pages/schedule/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/group/index",
+          "pathName": "pages/group/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/mine/index",
+          "pathName": "pages/mine/index",
           "scene": null
         }
       ]

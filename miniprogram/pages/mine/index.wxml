@@ -6,4 +6,13 @@
   </view>
   <view class="user-nickname">{{ nickName }}</view>
 </view>
-<view class="content-ctn"></view>
+<view class="content-ctn">
+  <view class="functions">Functions</view>
+  <view class="icons-ctn">
+    <image class="icons" src="../../images/My_Calendar.png"></image>
+    <image class="icons map-icon" src="../../images/Map.png"></image>
+    <image class="icons edit-icon" src="../../images/Edit_Message.png"></image>
+    <image class="icons" src="../../images/My_Posts.png"></image>
+    <image class="icons" src="../../images/Messages.png"></image>
+  </view>
+</view>

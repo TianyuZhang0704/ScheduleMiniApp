@@ -5,8 +5,9 @@
     <view class="section-triangle" bindtap="onChangeSection"></view>
     <view class="search-bar">
       <icon class="search-icon" type="search" size="18" color="#B1B3BA"></icon>
-      <input class="searchbar-txt" model:value="{{ inputVal }}" placeholder="Search here..." confirm-type="search" bindconfirm="onSearch"></input>
-      <view class="search-confirm" hidden="{{ inputVal == '' }}" bindtap="onSearch">Search</view>
+      <input class="searchbar-txt" model:value="{{ inputVal }}" placeholder="Search course..." confirm-type="search" bindconfirm="onSearch"></input>
+      <view class="cross" hidden="{{ inputVal == '' }}" bindtap="onClearInput">x</view>
+      <view class="search-confirm" hidden="{{ inputVal == '' }}" catchtap="onSearch">Search</view>
     </view>
   </view>
 </view>

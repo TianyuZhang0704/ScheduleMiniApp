@@ -1,4 +1,10 @@
 /* miniprogram/pages/login/index.wxss */
+.bg {
+  position: absolute;
+  width: 750rpx;
+  height: 1334rpx;
+}
+
 .login-btn {
   position: absolute;
   top: 70%;
@@ -6,6 +12,7 @@
   background: #57BD6A;
   height: 94rpx;
   border-radius: 47rpx;
+  z-index: 5;
 }
 
 .wechat-icon {
@@ -29,6 +36,14 @@
   margin-left: 58rpx;
 }
 
+.mask {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
 .info-container {
   position: absolute;
   background: #ffffff;
@@ -46,7 +61,6 @@
 }
 
 .app-logo {
-  background: pink;
   border-radius: 50%;
   width: 55rpx;
   height: 55rpx;

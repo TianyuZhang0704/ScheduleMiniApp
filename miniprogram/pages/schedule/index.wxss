@@ -43,9 +43,25 @@
   margin-left: 20rpx;
 }
 
+.cross {
+  position: absolute;
+  top: 15rpx;
+  left: 380rpx;
+  background: #ffffff;
+  height: 30rpx;
+  width: 30rpx;
+  border-radius: 15rpx;
+  font-family: Arial;
+  font-size: 20rpx;
+  line-height: 27rpx;
+  text-align: center;
+  z-index: 500;
+}
+
 .searchbar-txt {
   margin-left: 15rpx;
   margin-top: 8rpx;
+  margin-right: 40rpx;
   height: 25rpx;
   font-family: Arial;
   font-size: 28rpx;
@@ -166,7 +182,7 @@
 .search-result-ctn {
   width: 690rpx;
   margin-left: 30rpx;
-  margin-top: 60rpx;
+  margin-top: 120rpx;
 }
 
 .search-result-title {
@@ -181,6 +197,6 @@
 .search-course-list {
   margin-top: 30rpx;
   width: 690rpx;
-  height: 600rpx;
+  height: 560rpx;
   overflow: scroll;
 }

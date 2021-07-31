@@ -1,5 +1,6 @@
 <!--miniprogram/pages/login/index.wxml-->
 <!-- <view class="login-ctn" bindtap="onClick">Authorize</view> -->
+<image class="bg" src="../../images/login_bg.jpg"></image>
 <view wx:if="{{ !logged }}">
   <button class="login-btn" open-type="getUserInfo" bindgetuserinfo="onClick" style="width:500rpx;">
    <image class="wechat-icon" src="../../images/wechat.png"></image>
@@ -8,7 +9,7 @@
   <view class="mask" hidden="{{ !showMask }}">
     <view class="info-container">
       <view class="app-info">
-        <view class="app-logo"></view>
+        <image class="app-logo" src="../../images/app_logo.png"></image>
         <view class="app-name">UofT Course Scheduler</view>
       </view>
       <view class="ask">would like to access your nickname and avatar</view>

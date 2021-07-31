@@ -1,2 +1,21 @@
 <!--pages/group/index.wxml-->
-<text>pages/group/index.wxml</text>
+<view class="top-div">
+  <view class="search-ctn" style="top: {{ statusHeight }}rpx">
+    <view class="search-bar">
+      <icon class="search-icon" type="search" size="18" color="#B1B3BA"></icon>
+      <input class="searchbar-txt" model:value="{{ inputVal }}" placeholder="Search group..." confirm-type="search" bindconfirm="onSearch"></input>
+      <view class="cross" hidden="{{ inputVal == '' }}" bindtap="onClearInput">x</view>
+      <view class="search-confirm" hidden="{{ inputVal == '' }}" bindtap="onSearch">Search</view>
+    </view>
+  </view>
+</view>
+<view class="tab-row">
+  <view class="tab-row-txt tab-row-all" style="color: {{ sectionType == 0 ? '#6493DF' : '#B1B3BA'}};" bindtap="onChangeAll">
+    All Courses
+    <view class="tab-line" style="background: {{ sectionType == 0 ? '#6493DF' : '#B1B3BA'}};"></view>
+  </view>
+  <view class="tab-row-txt tab-row-my" style="color: {{ sectionType == 1 ? '#6493DF' : '#B1B3BA'}};" bindtap="onChangeMy">
+    Enrolled
+    <view class="tab-line" style="background: {{ sectionType == 1 ? '#6493DF' : '#B1B3BA'}};"></view>
+  </view>
+</view>

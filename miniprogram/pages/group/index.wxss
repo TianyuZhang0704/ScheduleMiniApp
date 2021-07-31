@@ -1,1 +1,95 @@
 /* pages/group/index.wxss */
+.top-div {
+  width: 750rpx;
+  height: 154rpx;
+}
+
+.search-ctn {
+  position: absolute;
+  width: 600rpx;
+  display: flex;
+}
+
+.search-bar {
+  margin-left: 30rpx;
+  width: 500rpx;
+  height: 60rpx;
+  background: #f2f2f2;
+  border-radius: 50px;
+  display: flex;
+}
+
+.search-icon {
+  margin-top: 12rpx;
+  margin-left: 20rpx;
+}
+
+.searchbar-txt {
+  margin-left: 15rpx;
+  margin-top: 8rpx;
+  height: 25rpx;
+  font-family: Arial;
+  font-size: 28rpx;
+  line-height: 25rpx;
+  margin-right: 60rpx;
+}
+
+.cross {
+  position: absolute;
+  top: 15rpx;
+  left: 360rpx;
+  background: #ffffff;
+  height: 30rpx;
+  width: 30rpx;
+  border-radius: 15rpx;
+  font-family: Arial;
+  font-size: 20rpx;
+  line-height: 27rpx;
+  text-align: center;
+  z-index: 500;
+}
+
+.search-confirm {
+  color: #6493DF;
+  font-family: Arial;
+  font-size: 30rpx;
+  line-height: 60rpx;
+  margin-right: 20rpx;
+}
+
+.tab-row {
+  width: 750rpx;
+  height: 85rpx;
+  box-shadow: 0px 4px 10px rgba(203, 203, 203, 0.5);
+  display: flex;
+}
+
+.tab-row-txt {
+  font-family: Arial;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 28rpx;
+  line-height: 28rpx;
+  color: #999999;
+  margin-top: 19rpx;
+}
+
+.my-courses {
+  margin-left: 30rpx;
+  color: #000000;
+}
+
+.tab-row-all {
+  margin-left: 170rpx;
+}
+
+.tab-row-my {
+  margin-left: 130rpx;
+}
+
+.tab-line {
+  width: 40rpx;
+  height: 4rpx;
+  margin: 9rpx auto 0;
+  background: #999999;
+}

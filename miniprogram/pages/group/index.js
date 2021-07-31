@@ -5,14 +5,45 @@ Page({
    * Page initial data
    */
   data: {
-
+    statusHeight: 0,
+    inputVal: '',
+    sectionType: 0   // 0: All Courses, 1: Enrolled
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
+    let that = this
+    wx.getSystemInfo({
+      success (res) {
+        let top = wx.getMenuButtonBoundingClientRect().top;
+        that.setData({
+          statusHeight: res.statusBarHeight + top + 6
+        })
+        console.log(that.data.statusHeight)
+      }
+    })
+  },
 
+  onClearInput: function() {
+    console.log("clear")
+    this.setData({
+      inputVal: '',
+      courses: []
+    })
+  },
+
+  onChangeAll: function() {
+    this.setData({
+      sectionType: 0
+    })
+  },
+
+  onChangeMy: function() {
+    this.setData({
+      sectionType: 1
+    })
   },
 
   /**
