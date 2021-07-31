@@ -10,31 +10,21 @@ cloud.init({
 })
 
 // 数据库中插入user with openid
-exports.main = async (event, context, openid, avatarUrl, nickName) => {
-  // 引用database
-  const db = cloud.database()
+exports.main = async (event, context) => {
+  // 初始化数据库
+  const db = cloud.database();
 
-  // 查询openid是否存在于database
-  const users = await db.collection('users')
-  await db.collection('users').doc(openid).get({
-    // 若此用户已经存在，则在console里打印改user的信息
-    success: function (res) {
-      console.log(res)
-    },
-    // 若不存在于数据库则存入数据库
-    fail: function (err) {
-      return await db.collection('location').add({
-        data: {
-          openId: openid,
-          avatarUrl: avatarUrl,
-          nickName: nickName,
-          savedSchedules: []
-        }
-      })
+  // 查询
+  db.collection("users").doc("doc-id").set({
+    data: {
+      openId: event.userInfo.openId,
+      nickName: event.nickName,
+      avatarUrl: event.avatarUrl,
+      saveSchedules: []
     }
-  }
-  )
-  }
-
-
-
+  }).then(res => {
+    console.log("添加成功", res)
+  }).catch(res => {
+    console.log("添加失败", res)
+  })
+}
