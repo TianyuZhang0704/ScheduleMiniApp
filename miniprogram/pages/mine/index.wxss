@@ -56,7 +56,7 @@
 .functions {
   position: absolute;
   top: 190rpx;
-  left: 90rpx;
+  left: 60rpx;
   font-family: Arial;
   font-size: 34rpx;
   font-weight: 600;
@@ -66,16 +66,24 @@
   position: absolute;
   top: 200rpx;
   width: 670rpx;
-  margin-left: 110rpx;
+  margin-left: 40rpx;
+  margin-top: 100rpx;
   display: flex;
   flex-wrap: wrap;
 }
 
+.icon-item {
+  position: relative;
+  width: 220rpx;
+  height: 200rpx;
+  margin-top: 15rpx;
+}
+
 .icons {
+  position: absolute;
+  left: 75rpx;
   width: 80rpx;
   height: 80rpx;
-  margin-right: 143rpx;
-  margin-top: 100rpx;
 }
 
 .map-icon {
@@ -84,4 +92,14 @@
 
 .edit-icon {
   height: 75rpx;
+}
+
+.icon-title {
+  font-family: Arial;
+  font-size: 28rpx;
+  position: absolute;
+  top: 100rpx;
+  width: 220rpx;
+  left: 0;
+  text-align: center;
 }

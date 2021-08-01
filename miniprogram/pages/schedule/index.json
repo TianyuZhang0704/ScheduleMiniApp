@@ -1,5 +1,6 @@
 {
   "usingComponents": {
     "schedule-course-item": "../../components/scheduleCourseItem"
-  }
+  },
+  "navigationStyle": "custom"
 }

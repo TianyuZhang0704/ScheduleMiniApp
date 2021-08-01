@@ -92,7 +92,7 @@
   position: absolute;
   padding-top: 20rpx;
   width: 155rpx;
-  height: 175rpx;
+  height: 220rpx;
   top: 134rpx;
   left: 30rpx;
   background: #f2f2f2;
@@ -199,4 +199,14 @@
   width: 690rpx;
   height: 560rpx;
   overflow: scroll;
+}
+
+.class-no-found {
+  margin-top: 60rpx;
+  margin-bottom: 50rpx;
+  width: 690rpx;
+  text-align: center;
+  font-family: Arial;
+  font-size: 27rpx;
+  color: #bbbfca;
 }

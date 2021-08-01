@@ -19,3 +19,13 @@
     <view class="tab-line" style="background: {{ sectionType == 1 ? '#6493DF' : '#B1B3BA'}};"></view>
   </view>
 </view>
+<view class="group-outer-title">Groups</view>
+<view class="class-no-found" wx:if="{{ groupList.length == 0 }}">Sorry, can't find any group. Please search again.</view>
+<scroll-view class="group-list-ctn" scroll-y="true" bindscrolltolower="onScrollBottom">
+  <group-item 
+  wx:for="{{ groupList }}" 
+  wx:for-item="group" 
+  wx:key="group" 
+  groupItem="{{ group }}" />
+  <view class="finished" wx:if="{{ scrollFinished && !groupList.length == 0 }}">~ Already reached bottom ~</view>
+</scroll-view>

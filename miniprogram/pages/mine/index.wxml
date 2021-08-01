@@ -9,10 +9,25 @@
 <view class="content-ctn">
   <view class="functions">Functions</view>
   <view class="icons-ctn">
-    <image class="icons" src="../../images/My_Calendar.png"></image>
-    <image class="icons map-icon" src="../../images/Map.png"></image>
-    <image class="icons edit-icon" src="../../images/Edit_Message.png"></image>
-    <image class="icons" src="../../images/My_Posts.png"></image>
-    <image class="icons" src="../../images/Messages.png"></image>
+    <view class="icon-item">
+      <image class="icons" src="../../images/My_Calendar.png"></image>
+      <view class="icon-title">Calendar</view>
+    </view>
+    <view class="icon-item">
+      <image class="icons map-icon" src="../../images/Map.png"></image>
+      <view class="icon-title">Map</view>
+    </view>
+    <view class="icon-item" bindtap="goToViewSchedule">
+      <image class="icons edit-icon" src="../../images/Edit_Message.png"></image>
+      <view class="icon-title">Manage Courses</view>
+    </view>
+    <view class="icon-item">
+      <image class="icons" src="../../images/My_Posts.png"></image>
+      <view class="icon-title">My Posts</view>
+    </view>
+    <view class="icon-item">
+      <image class="icons" src="../../images/Messages.png"></image>
+      <view class="icon-title">Message</view>
+    </view>
   </view>
 </view>

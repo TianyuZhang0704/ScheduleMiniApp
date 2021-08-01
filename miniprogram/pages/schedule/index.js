@@ -5,12 +5,13 @@ Page({
    * Page initial data
    */
   data: {
-    tab: -1,    // -1: year, 0: fall, 1: winter
+    tab: -1,    // -1: any, 0: fall, 1: winter, 2: year
     showSelection: false,
     inputVal: '',
     statusHeight: 0,
     sectionType: 0,    // 0: fall, 1: winter
-    courses: []
+    courses: [],
+    myCourses: []
   },
 
   /**
@@ -52,11 +53,19 @@ Page({
     })
   },
 
-  chooseYear: function() {
+  chooseAny: function() {
     this.setData({
       tab: -1,
       showSelection: false,
       section: ''
+    })
+  },
+
+  chooseYear: function() {
+    this.setData({
+      tab: 2,
+      showSelection: false,
+      section: 'Y'
     })
   },
 

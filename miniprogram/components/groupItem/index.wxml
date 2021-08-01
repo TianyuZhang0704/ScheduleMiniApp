@@ -1,0 +1,8 @@
+<!--components/groupItem/index.wxml-->
+<view class="group-item" bindtap="toPost">
+  <view class="title">
+    <text class="title-txt" decode="{{true}}">{{ groupItem.code }}&nbsp;&nbsp;{{ groupItem.courseName }}</text>
+  </view>
+  <view class="post-num">{{ groupItem.postNum ? groupItem.postNum : 0 }} posts</view>
+  <image class="arrow" src="../../images/Arrow_right.png"></image>
+</view>

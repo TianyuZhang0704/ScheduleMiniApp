@@ -42,7 +42,7 @@ Page({
     })
     console.log(this.data.avatarUrl);
     // 引用utils helper
-     var utils=require('./utils/generatePosts.js');
+    //  var utils=require('./utils/generatePosts.js');
     // utils.generateCSC108Posts();
     // utils.generateMAT137Posts();
    
@@ -64,6 +64,12 @@ Page({
     // })
 
 
+  },
+
+  goToViewSchedule: function() {
+    wx.navigateTo({
+      url: '../viewschedule/index',
+    })
   },
 
   /**

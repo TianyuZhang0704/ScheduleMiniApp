@@ -1,0 +1,3 @@
+<!--miniprogram/subpages/grouppage/index.wxml-->
+<view class="course-code">{{ code }}</view>
+<view class="post-num">{{ postNum }} posts</view>

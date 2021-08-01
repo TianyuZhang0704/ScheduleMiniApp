@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "group-item": "../../components/groupItem"
+  },
+  "navigationStyle": "custom"
 }

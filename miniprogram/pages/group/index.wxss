@@ -93,3 +93,37 @@
   margin: 9rpx auto 0;
   background: #999999;
 }
+
+.group-outer-title {
+  margin: 80rpx 50rpx 30rpx;
+  font-family: Arial;
+  font-size: 35rpx;
+  font-weight: 600;
+}
+
+.group-list-ctn {
+  width: 750rpx;
+  height: 830rpx;
+  margin-left: 0rpx;
+  margin-top: 0rpx;
+}
+
+.finished {
+  margin-top: 30rpx;
+  margin-bottom: 50rpx;
+  width: 750rpx;
+  text-align: center;
+  font-family: Arial;
+  font-size: 27rpx;
+  color: #bbbfca;
+}
+
+.class-no-found {
+  margin-top: 60rpx;
+  margin-bottom: 50rpx;
+  width: 750rpx;
+  text-align: center;
+  font-family: Arial;
+  font-size: 27rpx;
+  color: #bbbfca;
+}

@@ -5,11 +5,27 @@
     "pages/group/index",
     "pages/viewschedule/index",
     "pages/index/index",
-    "subpages/postpage/index",
-    "subpages/createpost/index",
     "pages/mine/index",
     "pages/login/index",
     "custom-tab-bar/index"
+  ],
+  "subPackages": [
+    {
+      "root": "subpages/postpage",
+      "pages": [
+        "index"
+      ]
+    }, {
+      "root": "subpages/createpost",
+      "pages": [
+        "index"
+      ]
+    }, {
+      "root": "subpages/grouppage",
+      "pages": [
+        "index"
+      ]
+    }
   ],
   "tabBar": {
     "custom": true,
@@ -47,8 +63,7 @@
   "window": {
     "backgroundColor": "#ffffff",
     "backgroundTextStyle": "light",
-    "navigationStyle": "custom",
-    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTitleText": "UofT Schedule Tool",
     "navigationBarTextStyle": "black"
   },

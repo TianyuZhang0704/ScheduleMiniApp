@@ -1,7 +1,7 @@
 <!--miniprogram/pages/schedule/index.wxml-->
 <view class="top-div">
   <view class="search-ctn" style="top: {{ statusHeight }}rpx">
-    <view class="section-text" bindtap="onChangeSection">{{ tab == -1 ? 'Any' : tab == 0 ? 'Fall' : 'Winter'}}</view>
+    <view class="section-text" bindtap="onChangeSection">{{ tab == -1 ? 'Any' : tab == 0 ? 'Fall' : tab == 1 ? 'Winter' : 'Year'}}</view>
     <view class="section-triangle" bindtap="onChangeSection"></view>
     <view class="search-bar">
       <icon class="search-icon" type="search" size="18" color="#B1B3BA"></icon>
@@ -15,7 +15,8 @@
   <view class="selection-box-triangle"></view> 
   <view class="section-text selection-txt" bindtap="chooseFall">Fall</view>
   <view class="section-text selection-txt" bindtap="chooseWinter">Winter</view>
-  <view class="section-text selection-txt" bindtap="chooseYear">Any</view>
+  <view class="section-text selection-txt" bindtap="chooseYear">Year</view>
+  <view class="section-text selection-txt" bindtap="chooseAny">Any</view>
 </view>
 <view class="tab-row">
   <view class="tab-row-txt my-courses">My Courses</view>
@@ -35,6 +36,7 @@
 </view>
 <view class="search-result-ctn">
   <view class="search-result-title">Search Result</view>
+  <view class="class-no-found" wx:if="{{ courses.length == 0 }}">Sorry, can't find any course. Please search again.</view>
   <view class="search-course-list">
     <schedule-course-item 
     wx:for="{{ courses }}"

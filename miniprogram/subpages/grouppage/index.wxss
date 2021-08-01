@@ -1,0 +1,19 @@
+/* miniprogram/subpages/grouppage/index.wxss */
+.course-code {
+  position: absolute;
+  font-family: Arial;
+  font-size: 42rpx;
+  font-weight: 600;
+  left: 50rpx;
+  top: 66rpx;
+}
+
+.post-num {
+  position: absolute;
+  top: 132rpx;
+  left: 50rpx;
+  font-family: Arial;
+  font-size: 30rpx;
+  color: #919399;
+  font-weight: 400;
+}

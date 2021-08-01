@@ -1,0 +1,42 @@
+/* components/groupItem/index.wxss */
+.group-item {
+  position: relative;
+  width: 650rpx;
+  height: 150rpx;
+  margin-left: 50rpx;
+  margin-top: 18rpx;
+  border-bottom:1px solid #e6e6e6;
+}
+
+.title {
+  position: absolute;
+  width: 550rpx;
+  top: 18rpx;
+  left: 0;
+  /* display: flex; */
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.title-txt {
+  font-family: Arial;
+  font-size: 29rpx;
+  font-weight: 500;
+}
+
+.post-num {
+  position: absolute;
+  top: 75rpx;
+  font-family: Arial;
+  font-size: 27rpx;
+  color: #919399;
+}
+
+.arrow {
+  position: absolute;
+  top: 55rpx;
+  width: 15rpx;
+  height: 25rpx;
+  right: 20rpx;
+}

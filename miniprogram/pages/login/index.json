@@ -1,4 +1,5 @@
 {
   "navigationBarTitleText": "Log in",
+  "navigationStyle": "custom",
   "usingComponents": {}
 }
