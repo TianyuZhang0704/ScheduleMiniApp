@@ -12,34 +12,34 @@ function loadDataBase(input){
       header: { 'content-type': 'application/json' // 默认值 
       }, 
       success (res) {
-        console.log(res);
-        let key = Object.keys(res.data)[0];
-        let meetings = res.data[key].meetings;
-        let offerings = new Object();
-        let sessions = Object.keys(meetings); 
-        for (let i = 0; i < sessions.length; i++){
-          offerings.session = [];
-          let weekdays = meetings[sessions[i]]["schedule"];
-          for (let j = 0; j < Object.keys(weekdays); j++){
-            let meetingDay = Object.keys(weekdays)[i]
-            offerings.
-          }
-        }
-
-
-
+         let meetings = res.data[course].meetings;
+         let offerings = []
+         let class_;
+         for (class_ in meetings){
+           let ref = {};
+           let day;
+           let sche = meetings[class_].schedule;
+           for (day in sche){
+              let meetingDay = sche[day].meetingDay;
+              let startTime = sche[day].meetingStartTime.split(':')[0];
+              let endTime = sche[day].meetingEndTime.split(':')[0];
+              ref[meetingDay] = [parseInt(startTime, 10), parseInt(endTime, 10)]
+              // console.log(sche[day].meetingDay, parseInt(startTime, 10), parseInt(endTime, 10));
+           }
+           offerings.push(ref);
+         }
 
         wx.cloud.database().collection('courses').doc(course).set({
           data : {
-            section: res.data[key].section,
+            section: res.data[course].section,
             code: code,
-            courseTitle: res.data[key].courseTitle,
-            courseDescription: res.data[key].courseDescription,
-            prerequisite: res.data[key].prerequisite,
-            corequisite: res.data[key].corequisite,
+            courseTitle: res.data[course].courseTitle,
+            courseDescription: res.data[course].courseDescription,
+            prerequisite: res.data[course].prerequisite,
+            corequisite: res.data[course].corequisite,
             meetings: meetings,
             offerings: offerings,
-            exclusion: res.data[key].exclusion
+            exclusion: res.data[course].exclusion
           }
         })
       },
