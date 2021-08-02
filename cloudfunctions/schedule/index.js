@@ -1,7 +1,5 @@
 // 云函数入口文件
-const cloud = require('wx-server-sdk')
-var rp = require('request-promise');
-const scheduleHelper = require('../../miniprogram/utils/scheduleHelper');
+const cloud = require('wx-server-sdk');
 const URL = 'https://timetable.iit.artsci.utoronto.ca/api/20219/courses';
 cloud.init({
   env: cloud.DYNAMIC_CURRENT_ENV
@@ -29,21 +27,10 @@ exports.main = async (event, context) => {
   }
   
   // step2: initialize schedule to do combination
-  let schedule = {
-    F: {MO: [], TU: [], WE: [], TH: [], FR: []},
-    S: {MO: [], TU: [], WE: [], TH: [], FR: []},
-  };
-  meetings = {
-    "LEC-0101": {
-     MO: [9, 10],
-     TU: [9, 10],
-     W: [9, 10]
-    },
-    "LEC-0201": [9, 10],
-    "LEC-0301": [16, 19]
-  }
-
-
+  let schedule = [
+    {"MO": [], "TU": [], "WE": [], "TH": [], "FR": []}, 
+    {"MO": [], "TU": [], "WE": [], "TH": [], "FR": []},
+  ];
 
   let plan = {
     F: [],
@@ -51,11 +38,20 @@ exports.main = async (event, context) => {
   };
 
   // step3: define helpers:
-  function addCourse(code, term){
-    const meetings = 
     // add lecture
-
+    cloud.database().collection('courses').doc('CSC108H1-S-20219')
+    .get({
+      success(res){
+        let off = res.data.offerings;
+        let ind;
+        for (ind in off){
+          let d = Object.keys(off[ind])[0];
+          schedule[0][d].push(off[ind][d]);
+        }
+      }     
+    })
   }
+
 
   function popCourse(code){
 
@@ -92,4 +88,4 @@ exports.main = async (event, context) => {
 
 
 
-}
+
