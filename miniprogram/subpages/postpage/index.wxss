@@ -1,1 +1,51 @@
 /* miniprogram/subpages/postpage/index.wxss */
+.title-ctn {
+  width: 650rpx;
+  margin-top: 50rpx;
+  margin-left: 50rpx;
+  /* display: flex; */
+}
+
+.post-title {
+  font-family: Arial;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 40rpx;
+  line-height: 55rpx;
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.tags-ctn {
+  margin-top: 20rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tag-item {
+  border: 1px solid #6493DF;
+  padding: 5rpx 10rpx;
+  border-radius: 8rpx;
+  font-family: Arial;
+  font-size: 20rpx;
+  color: #6493DF;
+  margin-right: 20rpx;
+}
+
+.top {
+  background: #DBD9D9;
+  padding: 5rpx 10rpx;
+  border-radius: 8rpx;
+  font-family: Arial;
+  font-size: 20rpx;
+  color: #000000;
+}
+
+.author-info {
+  width: 650rpx;
+  margin-left: 50rpx;
+  margin-top: 30rpx;
+}

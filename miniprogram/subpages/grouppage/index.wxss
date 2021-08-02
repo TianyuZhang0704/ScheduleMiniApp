@@ -17,3 +17,85 @@
   color: #919399;
   font-weight: 400;
 }
+
+.add-ctn {
+  position: absolute;
+  width: 227rpx;
+  height: 70rpx;
+  right: 50rpx;
+  top: 68rpx;
+  background: #93B9F2;
+  border-radius: 15rpx;
+}
+
+.add-icon {
+  position: absolute;
+  width: 25rpx;
+  height: 25rpx;
+  top: 24rpx;
+  left: 25rpx;
+}
+
+.add-text {
+  position: absolute;
+  font-family: Arial;
+  font-size: 30rpx;
+  line-height: 70rpx;
+  color: #ffffff;
+  right: 30rpx;
+}
+
+.tab-row {
+  position: absolute;
+  top: 237rpx;
+  width: 750rpx;
+  height: 85rpx;
+  box-shadow: 0px 4px 10px rgba(203, 203, 203, 0.5);
+  display: flex;
+}
+
+.tab-line {
+  width: 40rpx;
+  height: 4rpx;
+  margin: 9rpx auto 0;
+  background: #999999;
+}
+
+.nav {
+  width: 700rpx;
+  margin-left: 25rpx;
+  height: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.nav-item {
+  margin-left: 25rpx;
+  margin-right: 25rpx;
+  display: inline-block;
+  font-family: Arial;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 28rpx;
+  line-height: 28rpx;
+  color: #999999;
+  margin-top: 19rpx;
+}
+
+.w-mask {
+  position: absolute;
+  width: 90rpx;
+  height: 85rpx;
+  top: 0;
+  z-index: 5;
+}
+
+.left-mask {
+  left: 0;
+  background: linear-gradient(90deg, #FFFFFF 22.96%, rgba(255, 255, 255, 0.25) 70.44%);
+}
+
+.right-mask {
+  right: 0;
+  background: linear-gradient(270deg, #FFFFFF 22.96%, rgba(255, 255, 255, 0.25) 70.44%);
+}

@@ -1,2 +1,16 @@
 <!--miniprogram/subpages/postpage/index.wxml-->
-<text>miniprogram/subpages/postpage/index.wxml</text>
+<view class="post-ctn">
+  <view class="title-ctn">
+    <view class="post-title">{{ title }}</view>
+    <view class="tags-ctn">
+      <block class="tags" wx:for="{{ tags }}" wx:for-item="tag" wx:key="tag">
+        <view class="tag-item">{{ tag }}</view>
+      </block>
+      <view class="top" wx:if="{{ isTop }}">Top</view>
+    </view>
+  </view>
+  <view class="author-info">
+    <view class="author-avatar"></view>
+    <view class="author-name"></view>
+  </view>
+</view>

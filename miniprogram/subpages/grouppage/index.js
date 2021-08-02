@@ -6,7 +6,22 @@ Page({
    */
   data: {
     code: "",
-    postNum: 0
+    postNum: 0,
+    tabs: [
+      {
+        text: "All Posts"
+      }, {
+        text: "Official"
+      }, {
+        text: "Find Study Group"
+      }, {
+        text: "Questions"
+      }, {
+        text: "Experience"
+      }
+    ],
+    currTab: 0,
+    navScrollLeft: 0
   },
 
   /**
@@ -17,6 +32,35 @@ Page({
       code: options.code,
       postNum: options.postNum
     })
+  },
+
+  switchTab: function(event) {
+    console.log("switch tab")
+    let curr = event.currentTarget.dataset.current;
+    console.log(curr)
+    if (curr >= 3) {
+      this.setData({
+        navScrollLeft: 350
+      })
+    } else if (curr == 2) {
+      this.setData({
+        navScrollLeft: 50
+      })
+    } else {
+      this.setData({
+        navScrollLeft: 0
+      })
+    }
+    // this.setData({
+    //   navScrollLeft: curr * 100
+    // })
+    if (this.data.currTab == curr) {
+      return false;
+    } else {
+      this.setData({
+        currTab: curr
+      })
+    }
   },
 
   /**

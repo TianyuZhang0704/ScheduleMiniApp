@@ -51,6 +51,18 @@
         {
           "name": "pages/mine/index",
           "pathName": "pages/mine/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "subpages/postpage/index",
+          "pathName": "subpages/postpage/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "subpages/grouppage/index",
+          "pathName": "subpages/grouppage/index",
           "scene": null
         }
       ]

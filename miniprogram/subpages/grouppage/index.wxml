@@ -1,3 +1,19 @@
 <!--miniprogram/subpages/grouppage/index.wxml-->
 <view class="course-code">{{ code }}</view>
 <view class="post-num">{{ postNum }} posts</view>
+<view class="add-ctn">
+  <image class="add-icon" src="../../images/add.png"></image>
+  <view class="add-text">New Post</view>
+</view>
+<view class="tab-row">
+  <view class="w-mask left-mask" hidden="{{ currTab == 0 || currTab == 1 }}"></view>
+  <scroll-view scroll-x="true" class="nav" scroll-left="{{ navScrollLeft }}" scroll-with-animation="{{ true }}">
+    <block wx:for="{{ tabs }}" wx:for-index="idx" wx:for-item="navItem" wx:key="navItem">
+      <view class="nav-item" style="color: {{ currTab == idx ? '#6493DF' : '#B1B3BA'}};" data-current="{{idx}}" bindtap="switchTab">
+        {{ navItem.text }}
+        <view class="tab-line" style="background: {{ currTab == idx ? '#6493DF' : '#B1B3BA'}};"></view>
+      </view>
+    </block>
+  </scroll-view>
+  <view class="w-mask right-mask" hidden="{{ currTab == 4 || currTab == 3}}"></view>
+</view>
