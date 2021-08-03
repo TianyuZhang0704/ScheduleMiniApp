@@ -1,3 +1,5 @@
 {
+  "navigationBarTitleText": "New Post",
+  "navigationStyle": "custom",
   "usingComponents": {}
 }

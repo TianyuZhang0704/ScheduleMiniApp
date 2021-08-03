@@ -1,1 +1,36 @@
 /* miniprogram/pages/home/index.wxss */
+.swiper-ctn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 650rpx;
+  height: 350rpx;
+  margin-left: 50rpx;
+  z-index: 1;
+}
+
+.swiper-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 650rpx;
+  height: 350rpx;
+  border-radius: 25rpx;
+  overflow: hidden;
+}
+
+.swiper-img {
+  position: absolute;
+  top: -30rpx;
+  width: 650rpx;
+  height: 487.5rpx;
+}
+
+/* .body-ctn {
+  width: 750rpx;
+  height: 1334rpx;
+  position: absolute;
+  top: 420rpx;
+  border-radius: 20rpx;
+  z-index: 5;
+} */

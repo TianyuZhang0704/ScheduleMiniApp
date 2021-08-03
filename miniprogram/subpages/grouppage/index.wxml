@@ -1,9 +1,11 @@
 <!--miniprogram/subpages/grouppage/index.wxml-->
-<view class="course-code">{{ code }}</view>
-<view class="post-num">{{ postNum }} posts</view>
-<view class="add-ctn">
-  <image class="add-icon" src="../../images/add.png"></image>
-  <view class="add-text">New Post</view>
+<view class="top-ctn">
+  <view class="course-code">{{ code }}</view>
+  <view class="post-num">{{ postNum }} posts</view>
+  <view class="add-ctn" bindtap="toNewPost">
+    <image class="add-icon" src="../../images/add.png"></image>
+    <view class="add-text">New Post</view>
+  </view>
 </view>
 <view class="tab-row">
   <view class="w-mask left-mask" hidden="{{ currTab == 0 || currTab == 1 }}"></view>
@@ -16,4 +18,7 @@
     </block>
   </scroll-view>
   <view class="w-mask right-mask" hidden="{{ currTab == 4 || currTab == 3}}"></view>
+</view>
+<view class="post-lst">
+  <post-item wx:for="{{ posts }}" wx:for-item="post" wx:key="post" postItem="{{ post }}"/>
 </view>

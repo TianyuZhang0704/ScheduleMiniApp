@@ -10,7 +10,25 @@
     </view>
   </view>
   <view class="author-info">
-    <view class="author-avatar"></view>
-    <view class="author-name"></view>
+    <image class="author-avatar" src="{{ avatarUrl }}"></image>
+    <view class="author-name">{{ authorName }}</view>
   </view>
+  <view class="post-content">{{ content }}</view>
+  <view class="post-time">Posted on {{ postTime }}</view>
+  <view class="comment-num-divider">
+    <view class="comment-num">{{ commentNum }} Comments</view>
+  </view>
+</view>
+
+<!-- comment bar -->
+<view class="comment-bar">
+  <view class="comment-ctn">
+    <view class="comment-txt">Comment something...</view>
+  </view>
+</view>
+
+<!-- comment list -->
+<view class="comment-lst" wx:if="{{ comments.length != 0}}">
+  <view class="comment-title">Comments</view>
+  <comment-item wx:for="{{ comments }}" wx:for-item="comment" wx:key="comment" commentItem="{{ comment }}" isAuthor="{{ myId == comment.openid}}" />
 </view>

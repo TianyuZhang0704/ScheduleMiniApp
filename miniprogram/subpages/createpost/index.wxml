@@ -1,2 +1,43 @@
 <!--miniprogram/subpages/createpost/index.wxml-->
-<text>miniprogram/subpages/createpost/index.wxml</text>
+<view class="ctn" style="padding-top:{{ statusHeight }}rpx;">
+  <view class="nav-bar">
+    <image class="back-icon" src="../../images/Arrow.png" bindtap="onCancel"></image>
+    New Post
+  </view>
+  <textarea class="input-ctn" model:value="{{ inputVal }}" placeholder="Edit..." placeholder-style="font-family: Arial;font-size:30rpx;" maxlength="{{ 300 }}" auto-focus="{{ true }}" confirm-type="send">
+  </textarea>
+  <view class="word-count">
+    <text class="input-word">{{ inputVal.length }}</text>
+    <text class="total-word"> / 300</text>
+  </view>
+  <view class="buttons">
+    <view class="cancel" bindtap="onCancel">Cancel</view>
+    <view class="post" bindtap="onPost">Post</view>
+  </view>
+  <view class="bottom-ctn">
+    <view class="add-tag">Add Tags</view>
+    <view class="tags">
+      <block wx:for="{{ tagsAdded }}" wx:for-item="tag" wx:for-index="index" wx:key="tag">
+        <view class="tag-item">
+          {{ tag.name }}
+          <image class="tag-cross" src="../../images/blue_cross.png" bindtap="deleteTag" data-idx="{{ tag.idx }}" data-index="{{ index }}"></image>
+        </view>
+      </block>
+    </view>
+    <view class="all-tags">All Tags</view>
+    <view class="tags">
+      <bloack wx:for="{{ allTags }}" wx:for-item="item" wx:for-index="idx" wx:key="item">
+        <view class="{{ item.isActive ? 'all-tag-active' : 'all-tag-item'}}" bindtap="addTag" data-name="{{ item.name }}" data-idx="{{ idx }}">
+          {{ item.name }}
+        </view>
+      </bloack>
+    </view>
+  </view>
+</view>
+<!-- mask -->
+<view class="mask" hidden="{{ !showSuccess }}">
+  <view class="success-message-ctn">
+    <icon class="success-icon" type="success" size="40"></icon>
+    <view class="success-text">Send Successfully</view>
+  </view>
+</view>

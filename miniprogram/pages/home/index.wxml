@@ -1,2 +1,16 @@
 <!--miniprogram/pages/home/index.wxml-->
-<text>miniprogram/pages/home/index.wxml</text>
+<!-- Top swiper -->
+<view class="swiper-ctn">
+  <swiper indicator-dots="{{indicatorDots}}" class="swiper-item"
+    autoplay="{{autoplay}}" circular interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{swiperList}}" wx:for-item="pic" wx:key="pic">
+      <swiper-item>
+        <view class="swiper-item">
+          <image class="swiper-img" src="{{pic.path}}"></image>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<!-- body -->
+<view class="body-ctn"></view>

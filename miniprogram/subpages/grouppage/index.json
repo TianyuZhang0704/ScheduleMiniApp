@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "Group",
-  "usingComponents": {}
+  "usingComponents": {
+    "post-item": "../../components/postItem"
+  }
 }

@@ -6,18 +6,35 @@ Page({
    * Page initial data
    */
   data: {
-
+    swiperList: [
+      {
+        path: '/images/ejpday.jpeg'
+      }, {
+        path: '/images/lecture.jpeg'
+      }, {
+        path: '/images/campus.jpeg'
+      }, {
+        path: '/images/ejp.jpeg'
+      }, {
+        path: '/images/snow.jpeg'
+      }
+    ],
+    indicatorDots: true,
+    vertical: false,
+    autoplay: true,
+    interval: 5000,
+    duration: 500
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    if (!app.globalData.isLoggedIn) {
-      wx.navigateTo({
-        url: '/pages/login/index',
-      })
-    }
+    // if (!app.globalData.isLoggedIn) {
+    //   wx.navigateTo({
+    //     url: '/pages/login/index',
+    //   })
+    // }
   },
 
   /**

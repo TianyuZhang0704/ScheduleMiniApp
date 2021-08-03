@@ -63,6 +63,18 @@
         {
           "name": "subpages/grouppage/index",
           "pathName": "subpages/grouppage/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "subpages/createpost/index",
+          "pathName": "subpages/createpost/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/home/index",
+          "pathName": "pages/home/index",
           "scene": null
         }
       ]

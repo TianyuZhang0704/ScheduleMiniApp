@@ -15,13 +15,14 @@ Page({
       }, {
         text: "Find Study Group"
       }, {
-        text: "Questions"
+        text: "Question"
       }, {
         text: "Experience"
       }
     ],
     currTab: 0,
-    navScrollLeft: 0
+    navScrollLeft: 0,
+    posts: []
   },
 
   /**
@@ -31,6 +32,30 @@ Page({
     this.setData({
       code: options.code,
       postNum: options.postNum
+    })
+    let that = this;
+    let curr = that.data.currTab;
+    wx.cloud.callFunction({
+      name: 'getPostListByGroupId',
+      data: {
+        code: that.data.code,
+        tag: curr == 0 ? '' : that.data.tabs[curr].text
+      },
+      success: res => {
+        console.log("getPostListByGroup 调用成功", res);
+        that.setData({
+          posts: res.result.data
+        })
+      },
+      fail: res => {
+        console.log("getPostListByGroup 调用失败", res);
+      }
+    })
+  },
+
+  toNewPost: function() {
+    wx.navigateTo({
+      url: '/subpages/createpost/index',
     })
   },
 
@@ -61,6 +86,24 @@ Page({
         currTab: curr
       })
     }
+    let that = this;
+    let currTab = that.data.currTab;
+    wx.cloud.callFunction({
+      name: 'getPostListByGroupId',
+      data: {
+        code: that.data.code,
+        tag: curr == 0 ? '' : that.data.tabs[currTab].text
+      },
+      success: res => {
+        console.log("getPostListByGroup 调用成功", res);
+        that.setData({
+          posts: res.result.data
+        })
+      },
+      fail: res => {
+        console.log("getPostListByGroup 调用失败", res);
+      }
+    })
   },
 
   /**

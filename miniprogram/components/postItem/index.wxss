@@ -1,0 +1,91 @@
+/* components/postItem/index.wxss */
+.post-item {
+  width: 100%;
+  border-bottom: 1rpx solid #C4C4C4;
+}
+
+.title-ctn {
+  margin-top: 20rpx;
+  display: flex;
+}
+
+.title-txt {
+  width: 100%;
+  height: 35rpx;
+  margin-top: 51rpx;
+  font-family: Arial;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 30rpx;
+  line-height: 34rpx;
+  color: #000000;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tag {
+  font-family: Arial;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18rpx;
+  line-height: 17rpx;
+  color: #6493DF;
+  border: 3rpx solid #6493DF;
+  padding: 6rpx 10rpx;
+  border-radius: 6rpx;
+  margin-right: 15rpx;
+}
+
+.top {
+  font-family: Arial;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18rpx;
+  line-height: 17rpx;
+  color: #000000;
+  background: #DBD9D9;
+  padding: 6rpx 10rpx;
+  border-radius: 6rpx;
+  margin-right: 15rpx;
+}
+
+.content {
+  margin-top: 25rpx;
+  font-family: Arial;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 27rpx;
+  line-height: 34rpx;
+  color: #999999;
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.btm-ctn {
+  width: 100%;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+}
+
+.post-time {
+  font-family: Arial;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20rpx;
+  line-height: 32rpx;
+  color: #C0C0C0;
+}
+
+.comment-num {
+  margin-top: 15rpx;
+  font-family: Arial;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20rpx;
+  line-height: 32rpx;
+  color: #999999;
+}

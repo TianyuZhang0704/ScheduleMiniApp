@@ -1,0 +1,15 @@
+<!--components/postItem/index.wxml-->
+<view class="post-item" bindtap="goToPost">
+  <view class="title-txt">{{ postItem.title }}</view>
+  <view class="title-ctn">
+    <block class="tags" wx:if="{{ postItem.tags.length != 0}}" wx:for="{{ postItem.tags}}" wx:for-item="tag" wx:key="tag">
+      <view class="tag">{{ tag }}</view>
+    </block>
+    <view class="top" wx:if="{{ postItem.isTop }}">Top</view>
+  </view>
+  <view class="content">{{ postItem.content }}</view>
+  <view class="btm-ctn">
+    <view class="post-time">Posted by {{ postItem.authorName }} at {{ postItem.postTime }}</view>
+    <view class="comment-num">{{ postItem.commentNum ? postItem.commentNum : 0 }} Comments</view>
+  </view>
+</view>

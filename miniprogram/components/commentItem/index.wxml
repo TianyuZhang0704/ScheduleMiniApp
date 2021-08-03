@@ -1,0 +1,16 @@
+<!--components/commentItem/index.wxml-->
+<view class="comment-item">
+  <view class="author-info">
+    <image class="author-avatar" src="{{ commentItem.avatarUrl }}"></image>
+    <view class="author-name">{{ commentItem.authorName }}</view>
+    <view class="post-time">{{ commentItem.commentTime }}</view>
+    <view wx:if="{{ commentItem.isAuthor}}" class="delete">Delete</view>
+  </view>
+  <view class="content">{{ commentItem.content }}</view>
+  <view class="reply-ctn">
+    <view class="reply">
+      {{ commentItem.replyNum}} Replies
+      <view class="reply-triangle"></view>
+    </view>
+  </view>
+</view>

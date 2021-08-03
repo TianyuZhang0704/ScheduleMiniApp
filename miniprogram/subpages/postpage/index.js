@@ -5,23 +5,53 @@ Page({
    * Page initial data
    */
   data: {
-    title: "Should I retake CSC108?Should I retake CSC108?Should I retake CSC108?Should I retake CSC108?",
-    tags: ["Question", "Find Study Group", "Official", "Comment"],
-    isTop: true,
-    authorName: "NonD Infinite Struggle Automata",
-    avatarUrl: "https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKbKQ0icJfZtHMppNNPyPqJibhiaNXXWFD8DsOfGObfGFoGydNlkoWKjC76AxXzvM3puiczJDXAq7dEHg/132",
-    content: "Took csc108 in Fall 2020 and it was my lowest mark in all of my courses. It was my first ever programming course and I really struggled (procrastinating on assignments were some factors why I did bad). I wanna try and do a cs minor and I was wondering if it’s worth it to retake csc108 to improve my understanding (Retaking could also boost up my cgpa - from 3.6ish to 3.7ish).",
-    courseCode: "CSC108H1",
-    postTime: "2021-06-10 18:42:06",
+    title: "",
+    tags: [],
+    isTop: false,
+    authorName: "",
+    avatarUrl: "",
+    courseCode: "",
+    postTime: "",
     commentNum: 0,
-    commentId: []
+    commentId: [],
+    comments: []
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-
+    this.setData({
+      myId: wx.getStorageInfoSync("userInfo").openid,
+      postId: options.postId
+    })
+    let that = this;
+    wx.cloud.callFunction({
+      name: 'getCommentByPostId',
+      data: {
+        postId: that.data.postId
+      },
+      success: res => {
+        console.log("getCommentByPostId 调用成功", res);
+        this.setData({
+          authorName: res.result.data.authorName,
+          avatarUrl: res.result.data.avatarUrl,
+          commentId: res.result.data.commentId,
+          commentNum: res.result.data.commentNum,
+          comments: res.result.data.commentObjs,
+          content: res.result.data.content,
+          code: res.result.data.courseCode,
+          isTop: res.result.data.isTop,
+          postTime: res.result.data.postTime,
+          tags: res.result.data.tags,
+          title: res.result.data.title,
+          openid: res.result.data._openid
+        })
+      },
+      fail: res => {
+        console.log("getCommentByPostId 调用失败", res);
+      }
+    })
   },
 
   /**

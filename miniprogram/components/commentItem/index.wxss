@@ -1,0 +1,103 @@
+/* components/commentItem/index.wxss */
+.comment-item {
+  position: relative;
+  border-bottom: 1rpx solid #C4C4C4;
+  margin-top: 40rpx;
+}
+
+.author-info {
+  height: 70rpx;
+  width: 100%;
+}
+
+.author-avatar {
+  position: absolute;
+  width: 70rpx;
+  height: 70rpx;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+}
+
+.author-name {
+  position: absolute;
+  top: 6rpx;
+  left: 84rpx;
+  font-family: Arial;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 30rpx;
+  line-height: 34rpx;
+  color: #000000;
+}
+
+.post-time {
+  position: absolute;
+  top: 42rpx;
+  left: 84rpx;
+  font-family: Arial;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20rpx;
+  line-height: 21rpx;
+  color: #999999;
+}
+
+.delete {
+  position: absolute;
+  top: 19rpx;
+  right: 0;
+  font-family: Arial;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22rpx;
+  line-height: 25rpx;
+  color: #999999;
+}
+
+.content {
+  margin-top: 33rpx;
+  width: 100%;
+  font-family: Arial;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 28rpx;
+  line-height: 38rpx;
+  color: #999999;
+}
+
+.reply-ctn {
+  position: relative;
+  margin-top: 20rpx;
+  margin-bottom: 37rpx;
+  height: 40rpx;
+  width: 100%;
+}
+
+.reply {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-left: 18rpx;
+  padding-right: 36rpx;
+  font-family: Arial;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22rpx;
+  line-height: 40rpx;
+  color: #C4C4C4;
+  border: 1px solid #C4C4C4;
+  box-sizing: border-box;
+  border-radius: 17.5px;
+}
+
+.reply-triangle {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 6rpx solid transparent;
+  border-bottom: 6rpx solid transparent;
+  border-left: 10rpx solid #C4C4C4;
+  top: 14rpx;
+  right: 18rpx;
+}

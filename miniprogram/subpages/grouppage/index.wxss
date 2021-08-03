@@ -8,6 +8,14 @@
   top: 66rpx;
 }
 
+.top-ctn {
+  height: 237rpx;
+  width: 750rpx;
+  background: #ffffff;
+  position: fixed;
+  z-index: 50;
+}
+
 .post-num {
   position: absolute;
   top: 132rpx;
@@ -46,12 +54,14 @@
 }
 
 .tab-row {
-  position: absolute;
+  position: fixed;
   top: 237rpx;
   width: 750rpx;
   height: 85rpx;
+  background: #ffffff;
   box-shadow: 0px 4px 10px rgba(203, 203, 203, 0.5);
   display: flex;
+  z-index: 100;
 }
 
 .tab-line {
@@ -98,4 +108,12 @@
 .right-mask {
   right: 0;
   background: linear-gradient(270deg, #FFFFFF 22.96%, rgba(255, 255, 255, 0.25) 70.44%);
+}
+
+.post-lst {
+  position: absolute;
+  top: 352rpx;
+  width: 650rpx;
+  left: 50rpx;
+  z-index: 10;
 }
