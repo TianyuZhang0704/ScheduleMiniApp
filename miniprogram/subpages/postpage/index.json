@@ -1,5 +1,6 @@
 {
   "navigationBarTitleText": "Post",
+  "navigationStyle": "custom",
   "usingComponents": {
     "comment-item": "../../components/commentItem"
   }

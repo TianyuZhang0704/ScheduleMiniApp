@@ -1,4 +1,14 @@
 <!--miniprogram/pages/home/index.wxml-->
+<view class="top-div">
+  <view class="search-ctn" style="top: {{ statusHeight }}rpx">
+    <view class="search-bar">
+      <icon class="search-icon" type="search" size="18" color="#B1B3BA"></icon>
+      <input class="searchbar-txt" model:value="{{ inputVal }}" placeholder="Search here..." confirm-type="search"></input>
+      <view class="cross" hidden="{{ inputVal == '' }}" bindtap="onClearInput">x</view>
+      <view class="search-confirm" hidden="{{ inputVal == '' }}" bindtap="onSearch">Search</view>
+    </view>
+  </view>
+</view>
 <!-- Top swiper -->
 <view class="swiper-ctn">
   <swiper indicator-dots="{{indicatorDots}}" class="swiper-item"

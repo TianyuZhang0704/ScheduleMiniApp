@@ -1,4 +1,8 @@
 <!--miniprogram/subpages/postpage/index.wxml-->
+<view class="nav-bar">
+    <image class="back-icon" src="../../images/Arrow.png" bindtap="onBack"></image>
+    Post
+  </view>
 <view class="post-ctn">
   <view class="title-ctn">
     <view class="post-title">{{ title }}</view>
@@ -30,5 +34,46 @@
 <!-- comment list -->
 <view class="comment-lst" wx:if="{{ comments.length != 0}}">
   <view class="comment-title">Comments</view>
-  <comment-item wx:for="{{ comments }}" wx:for-item="comment" wx:key="comment" commentItem="{{ comment }}" isAuthor="{{ myId == comment.openid}}" />
+  <comment-item 
+  wx:for="{{ comments }}" 
+  wx:for-item="comment" 
+  wx:key="comment" 
+  commentItem="{{ comment }}" 
+  myId="{{ myId }}" 
+  showReply="{{ true }}" 
+  bind:clickReply="clickReply" />
+</view>
+
+<!-- mask -->
+<view class="mask" hidden="{{ !replyMask }}">
+  <view class="popup-ctn">
+    <view class="title">
+      <view class="view-replies">View Replies</view>
+      <image class="cross" src="../../images/Cross.png" bindtap="closePop"></image>
+    </view>
+    <view class="pop-comment">
+      <comment-item 
+      commentItem="{{ selectComment }}" 
+      hasBorder="{{ false }}"
+      myId="{{ myId }}" />
+    </view>
+    <view class="comment-num-divider">
+      <view class="comment-num">{{ selectComment.replyNum }} Replies</view>
+    </view>
+    <view class="pop-reply-lst">
+      <comment-item 
+      wx:for="{{ selectReplyList }}" 
+      wx:for-item="reply" 
+      wx:key="reply" 
+      commentItem="{{ reply }}" 
+      myId="{{ myId }}" 
+      showReply="{{ true }}" />
+    </view>
+  </view>
+  <!-- comment bar -->
+  <view class="comment-bar">
+    <view class="comment-ctn">
+      <view class="comment-txt">Reply {{ selectComment.authorName }}...</view>
+    </view>
+  </view>
 </view>

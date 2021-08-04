@@ -23,7 +23,10 @@ Page({
     vertical: false,
     autoplay: true,
     interval: 5000,
-    duration: 500
+    duration: 500,
+    statusHeight: 0,
+    inputVal: '',
+    searchVal: ''
   },
 
   /**
@@ -35,6 +38,16 @@ Page({
     //     url: '/pages/login/index',
     //   })
     // }
+    let that = this
+    wx.getSystemInfo({
+      success (res) {
+        let top = wx.getMenuButtonBoundingClientRect().top;
+        that.setData({
+          statusHeight: res.statusBarHeight + top + 6
+        })
+        console.log(that.data.statusHeight)
+      }
+    })
   },
 
   /**
