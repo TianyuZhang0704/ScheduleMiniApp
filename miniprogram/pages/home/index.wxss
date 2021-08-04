@@ -64,6 +64,8 @@
   width: 650rpx;
   height: 350rpx;
   left: 50rpx;
+  border-radius: 25rpx;
+  overflow: hidden;
   z-index: 1;
 }
 
@@ -73,8 +75,6 @@
   left: 0;
   width: 650rpx;
   height: 350rpx;
-  border-radius: 25rpx;
-  overflow: hidden;
 }
 
 .swiper-img {
