@@ -18,8 +18,8 @@ Component({
       isSpecial: false
     }, {
       pagePath: "/pages/viewschedule/index",
-      iconPath: "../images/schedule_blue.png",
-      selectedIconPath: "../images/schedule_blue.png",
+      iconPath: "../images/app_logo.png",
+      selectedIconPath: "../images/app_logo.png",
       text: "",
       isSpecial: true
     }, {

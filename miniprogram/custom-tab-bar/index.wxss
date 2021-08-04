@@ -41,7 +41,7 @@
   width: 85rpx;
   height: 85rpx;
   position: absolute;
-  top: -20rpx;
-  border-radius: 30%;
+  top: -10rpx;
+  border-radius: 50%;
   border: 15rpx solid #fff;
 }

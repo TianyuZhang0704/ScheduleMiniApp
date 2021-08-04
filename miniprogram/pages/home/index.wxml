@@ -22,5 +22,14 @@
     </block>
   </swiper>
 </view>
-<!-- body -->
-<view class="body-ctn"></view>
+<!-- Modules -->
+<view class="modules">
+  <view class="module-items col" wx:for="{{modules}}" wx:key="id">
+    <image class="modules-img" src="{{item.icon}}"></image>
+    <view class="module-name">{{item.name}}</view>
+  </view>
+</view>
+<!-- Top Posts -->
+<view class="top-posts-ctn">
+  <view class="top-posts">Top Posts</view>
+</view>

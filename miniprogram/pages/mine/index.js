@@ -45,23 +45,6 @@ Page({
     //  var utils=require('./utils/generatePosts.js');
     // utils.generateCSC108Posts();
     // utils.generateMAT137Posts();
-   
-
-    // call cloudfunction pagination
-    // wx.cloud.callFunction({
-    //   name: 'pagination',
-    //   data: {
-    //     code: "",
-    //     pageNum: 1, // 此处不能传入<= 0 的非整数
-    //     pageSize: 20 // 此处不能传入<= 0 的非整数
-    //   },
-    //   success: res => {
-    //     console.log("pagination 调用成功", res)
-    //   },
-    //   fail: res => {
-    //     console.log("pagination 调用失败", res)
-    //   }
-    // })
 
 
   },

@@ -26,18 +26,41 @@ Page({
     duration: 500,
     statusHeight: 0,
     inputVal: '',
-    searchVal: ''
+    searchVal: '',
+    modules: [
+      {
+        id: 'mod1',
+        name: 'Calender',
+        icon: '../../images/My_Calendar.png'
+      }, {
+        id: 'mod2',
+        name: 'Map',
+        icon: '../../images/Map.png'
+      }, {
+        id: 'mod3',
+        name: 'Courses',
+        icon: '../../images/Edit_Message.png'
+      }, {
+        id: 'mod4',
+        name: 'Posts',
+        icon: '../../images/My_Posts.png'
+      }, {
+        id: 'mod5',
+        name: 'Meesage',
+        icon: '../../images/Messages.png'
+      }
+    ]
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    // if (!app.globalData.isLoggedIn) {
-    //   wx.navigateTo({
-    //     url: '/pages/login/index',
-    //   })
-    // }
+    if (!app.globalData.isLoggedIn) {
+      wx.navigateTo({
+        url: '/pages/login/index',
+      })
+    }
     let that = this
     wx.getSystemInfo({
       success (res) {

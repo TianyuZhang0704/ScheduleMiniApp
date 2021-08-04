@@ -84,11 +84,46 @@
   height: 487.5rpx;
 }
 
-/* .body-ctn {
-  width: 750rpx;
-  height: 1334rpx;
+.modules {
+  display: flex;
   position: absolute;
-  top: 420rpx;
-  border-radius: 20rpx;
-  z-index: 5;
-} */
+  width: 650rpx;
+  left: 50rpx;
+  top: 540rpx;
+  background-color: white;
+  border-radius: 17rpx;
+  flex-direction: row;
+  margin-top: 10rpx;
+  border: 1rpx solid #B1B3BA;
+}
+
+.module-items {
+  position: relative;
+  width: 130rpx;
+  margin: 20rpx 0 20rpx;
+}
+
+.modules-img {
+  margin-left: 40rpx;
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.module-name {
+  width: 100%;
+  font-family: Arial;
+  font-size: 22rpx;
+  margin-top: 3rpx;
+  text-align: center;
+  color: #000000;
+}
+
+.top-posts-ctn {
+  position: absolute;
+  width: 650rpx;
+  top: 730rpx;
+  margin-left: 50rpx;
+  font-family: Arial;
+  font-size: 34rpx;
+  font-weight: 600;
+}
