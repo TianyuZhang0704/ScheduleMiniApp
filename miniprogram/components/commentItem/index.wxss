@@ -1,7 +1,6 @@
 /* components/commentItem/index.wxss */
 .comment-item {
   position: relative;
-  border-bottom: 1rpx solid #C4C4C4;
   margin-top: 40rpx;
 }
 
@@ -19,16 +18,44 @@
   border-radius: 50%;
 }
 
-.author-name {
+.author-name-ctn {
   position: absolute;
   top: 6rpx;
   left: 84rpx;
+  display: flex;
+}
+
+.author-name {
+  max-width: 200rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-family: Arial;
   font-style: normal;
   font-weight: bold;
   font-size: 30rpx;
   line-height: 34rpx;
   color: #000000;
+}
+
+.author-name-full {
+  font-family: Arial;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 30rpx;
+  line-height: 34rpx;
+  color: #000000;
+}
+
+.sub-reply-tri {
+  width: 0;
+  height: 0;
+  margin-left: 15rpx;
+  margin-right: 7rpx;
+  margin-top: 9rpx;
+  border-top: 7rpx solid transparent;
+  border-bottom: 7rpx solid transparent;
+  border-left: 8rpx solid #000000;
 }
 
 .post-time {
@@ -72,6 +99,16 @@
   margin-bottom: 37rpx;
   height: 40rpx;
   width: 100%;
+  display: flex;
+}
+
+.box {
+  position: relative;
+  margin-top: 10rpx;
+  margin-bottom: 37rpx;
+  height: 10rpx;
+  width: 100%;
+  display: flex;
 }
 
 .reply {
@@ -89,6 +126,23 @@
   border: 1px solid #C4C4C4;
   box-sizing: border-box;
   border-radius: 17.5px;
+}
+
+.reply-btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-left: 18rpx;
+  padding-right: 18rpx;
+  font-family: Arial;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22rpx;
+  line-height: 40rpx;
+  color: #ffffff;
+  background: #d4d3d3;
+  box-sizing: border-box;
+  border-radius: 10rpx;
 }
 
 .reply-triangle {

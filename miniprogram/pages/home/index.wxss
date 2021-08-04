@@ -1,11 +1,69 @@
 /* miniprogram/pages/home/index.wxss */
+.top-div {
+  width: 750rpx;
+  height: 154rpx;
+}
+
+.search-ctn {
+  position: absolute;
+  width: 600rpx;
+  display: flex;
+}
+
+.search-bar {
+  margin-left: 30rpx;
+  width: 500rpx;
+  height: 60rpx;
+  background: #f2f2f2;
+  border-radius: 50px;
+  display: flex;
+}
+
+.search-icon {
+  margin-top: 12rpx;
+  margin-left: 20rpx;
+}
+
+.searchbar-txt {
+  margin-left: 15rpx;
+  margin-top: 8rpx;
+  height: 25rpx;
+  font-family: Arial;
+  font-size: 28rpx;
+  line-height: 25rpx;
+  margin-right: 60rpx;
+}
+
+.cross {
+  position: absolute;
+  top: 15rpx;
+  left: 360rpx;
+  background: #ffffff;
+  height: 30rpx;
+  width: 30rpx;
+  border-radius: 15rpx;
+  font-family: Arial;
+  font-size: 20rpx;
+  line-height: 27rpx;
+  text-align: center;
+  z-index: 500;
+}
+
+.search-confirm {
+  color: #6493DF;
+  font-family: Arial;
+  font-size: 30rpx;
+  line-height: 60rpx;
+  margin-right: 20rpx;
+}
+
 .swiper-ctn {
   position: absolute;
-  top: 0;
+  top: 170rpx;
   left: 0;
   width: 650rpx;
   height: 350rpx;
-  margin-left: 50rpx;
+  left: 50rpx;
   z-index: 1;
 }
 

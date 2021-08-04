@@ -1,16 +1,29 @@
 <!--components/commentItem/index.wxml-->
-<view class="comment-item">
+<view class="comment-item" style="{{ hasBorder ? 'border-bottom: 1rpx solid #C4C4C4;' : ''}}">
   <view class="author-info">
     <image class="author-avatar" src="{{ commentItem.avatarUrl }}"></image>
-    <view class="author-name">{{ commentItem.authorName }}</view>
-    <view class="post-time">{{ commentItem.commentTime }}</view>
-    <view wx:if="{{ commentItem.isAuthor}}" class="delete">Delete</view>
+    <view class="author-name-ctn">
+      <view class="{{ commentItem.level == 1 ? 'author-name-full' : 'author-name'}}">{{ commentItem.authorName }}</view>
+      <view class="sub-reply-tri" wx:if="{{ commentItem.level == 2}}"></view>
+      <view class="author-name" wx:if="{{ commentItem.level == 2}}">{{ commentItem.parentName }}</view>
+    </view>
+    <view class="post-time">{{ commentItem.commentTime || commentItem.replyTime }}</view>
+    <view wx:if="{{ commentItem._openid == myId }}" class="delete">Delete</view>
   </view>
   <view class="content">{{ commentItem.content }}</view>
-  <view class="reply-ctn">
-    <view class="reply">
+  <view wx:if="{{ showReply }}" class="reply-ctn">
+    <view hidden="{{ commentItem.level }}" class="reply" bindtap="onClickReply">
       {{ commentItem.replyNum}} Replies
       <view class="reply-triangle"></view>
     </view>
+    <view wx:if="{{ commentItem.level == 1}}" class="reply-btn">Reply</view>
   </view>
+  <view wx:if="{{ !showReply && hasBorder }}" class="box"></view>
 </view>
+<comment-item
+wx:if="{{ commentItem.childReply }}" 
+wx:for="{{ commentItem.childReply }}" 
+wx:for-item="childReply" 
+wx:key="childReply" 
+commentItem="{{ childReply }}"
+myId="{{ myId }}" />

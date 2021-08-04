@@ -14,18 +14,27 @@ Page({
     postTime: "",
     commentNum: 0,
     commentId: [],
-    comments: []
+    comments: [],
+    replyMask: false,
+    selectCommentId: '',
+    selectComment: {},
+    selectReplyList: []
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
+    let info = wx.getStorageSync('userInfo');
+    console.log("open id: ", info.openid)
     this.setData({
-      myId: wx.getStorageInfoSync("userInfo").openid,
+      myId: info.openid,
       postId: options.postId
     })
     let that = this;
+    wx.showLoading({
+      title: 'Loading...',
+    })
     wx.cloud.callFunction({
       name: 'getCommentByPostId',
       data: {
@@ -47,10 +56,67 @@ Page({
           title: res.result.data.title,
           openid: res.result.data._openid
         })
+        wx.hideLoading();
       },
       fail: res => {
         console.log("getCommentByPostId 调用失败", res);
+        wx.hideLoading();
       }
+    })
+    // wx.cloud.callFunction({
+    //   name: 'getReplyByCommentId',
+    //   data: {
+    //     commentId: "CSC108H1-comment-2"
+    //   },
+    //   success: res => {
+    //     console.log("getReplyByCommentId 调用成功", res)
+    //     that.setData({
+    //       selectComment: res.result.commentObj,
+    //       selectReplyList: res.result.replyObjects
+    //     })
+    //   },
+    //   fail: res => {
+    //     console.log("getReplyByCommentId 调用失败", res)
+    //   }
+    // })
+  },
+
+  onBack: function() {
+    wx.navigateBack({
+      delta: 0,
+    })
+  },
+
+  clickReply: function(event) {
+    let that = this;
+    this.setData({
+      selectCommentId: event.detail.id,
+      replyMask: true
+    })
+    wx.cloud.callFunction({
+      name: 'getReplyByCommentId',
+      data: {
+        commentId: that.data.selectCommentId
+      },
+      success: res => {
+        console.log("getReplyByCommentId 调用成功", res)
+        that.setData({
+          selectComment: res.result.commentObj,
+          selectReplyList: res.result.replyObjects
+        })
+      },
+      fail: res => {
+        console.log("getReplyByCommentId 调用失败", res)
+      }
+    })
+  },
+
+  closePop: function() {
+    this.setData({
+      selectCommentId: '',
+      selectComment: {},
+      selectReplyList: [],
+      replyMask: false
     })
   },
 

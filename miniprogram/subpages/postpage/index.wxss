@@ -1,4 +1,26 @@
 /* miniprogram/subpages/postpage/index.wxss */
+.nav-bar {
+  position: fixed;
+  width: 750rpx;
+  text-align: center;
+  height: 60rpx;
+  padding-top: 70rpx;
+  background: #ffffff;
+  z-index: 100;
+}
+
+.back-icon {
+  position: absolute;
+  width: 15rpx;
+  height: 30rpx;
+  top: 85rpx;
+  left: 50rpx;
+}
+
+.post-ctn {
+  padding-top: 100rpx;
+}
+
 .title-ctn {
   width: 650rpx;
   margin-top: 50rpx;
@@ -149,4 +171,63 @@
   line-height: 70rpx;
   font-weight: 600;
   margin-bottom: 30rpx;
+}
+
+.mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 500;
+}
+
+.popup-ctn {
+  position: absolute;
+  width: 750rpx;
+  height: 1254rpx;
+  left: 0rpx;
+  top: 80rpx;
+  background: #FFFFFF;
+  border-radius: 20px 20px 0px 0px;
+}
+
+.title {
+  position: absolute;
+  top: 87rpx;
+  left: 50rpx;
+  width: 650rpx;
+}
+
+.cross {
+  width: 25rpx;
+  height: 25rpx;
+  position: absolute;
+  top: 3rpx;
+  right: 0;
+}
+
+.view-replies {
+  font-family: Arial;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 40rpx;
+  line-height: 46rpx;
+  color: #000000;
+}
+
+.pop-comment {
+  margin-top: 202rpx;
+  margin-left: 50rpx;
+  margin-bottom: 50rpx;
+  width: 650rpx;
+}
+
+.pop-reply-lst {
+  width: 650rpx;
+  height: 550rpx;
+  margin-top: 20rpx;
+  margin-left: 50rpx;
+  overflow: scroll;
 }

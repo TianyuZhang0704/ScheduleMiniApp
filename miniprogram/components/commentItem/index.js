@@ -8,9 +8,17 @@ Component({
       type: Object,
       value: {}
     },
-    isAuthor: {
+    myId: {
+      type: String,
+      value: ''
+    },
+    showReply: {
       type: Boolean,
       value: false
+    },
+    hasBorder: {
+      type: Boolean,
+      value: true
     }
   },
 
@@ -25,6 +33,10 @@ Component({
    * Component methods
    */
   methods: {
-
+    onClickReply: function() {
+      this.triggerEvent("clickReply", {
+        id: this.properties.commentItem._id
+      })
+    }
   }
 })

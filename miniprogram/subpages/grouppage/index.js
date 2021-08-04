@@ -1,4 +1,6 @@
 // miniprogram/subpages/grouppage/index.js
+import { getPostListByGroupId } from '../../utils/getPostListByGroupId.js';
+
 Page({
 
   /**
@@ -35,22 +37,37 @@ Page({
     })
     let that = this;
     let curr = that.data.currTab;
-    wx.cloud.callFunction({
-      name: 'getPostListByGroupId',
-      data: {
-        code: that.data.code,
-        tag: curr == 0 ? '' : that.data.tabs[curr].text
-      },
-      success: res => {
-        console.log("getPostListByGroup 调用成功", res);
-        that.setData({
-          posts: res.result.data
-        })
-      },
-      fail: res => {
-        console.log("getPostListByGroup 调用失败", res);
-      }
+    wx.showLoading({
+      title: 'Loading...',
     })
+    getPostListByGroupId(that.data.code, curr == 0 ? '' : that.data.tabs[curr].text).then(res => {
+      that.setData({
+        posts: res.result.data
+      })
+      wx.hideLoading();
+    }).catch(err => {
+      wx.hideLoadinng();
+      wx.showToast({
+        title: err.message,
+        icon: "none"
+      })
+    })
+    // wx.cloud.callFunction({
+    //   name: 'getPostListByGroupId',
+    //   data: {
+    //     code: that.data.code,
+    //     tag: curr == 0 ? '' : that.data.tabs[curr].text
+    //   },
+    //   success: res => {
+    //     console.log("getPostListByGroup 调用成功", res);
+    //     that.setData({
+    //       posts: res.result.data
+    //     })
+    //   },
+    //   fail: res => {
+    //     console.log("getPostListByGroup 调用失败", res);
+    //   }
+    // })
   },
 
   toNewPost: function() {
@@ -88,21 +105,20 @@ Page({
     }
     let that = this;
     let currTab = that.data.currTab;
-    wx.cloud.callFunction({
-      name: 'getPostListByGroupId',
-      data: {
-        code: that.data.code,
-        tag: curr == 0 ? '' : that.data.tabs[currTab].text
-      },
-      success: res => {
-        console.log("getPostListByGroup 调用成功", res);
-        that.setData({
-          posts: res.result.data
-        })
-      },
-      fail: res => {
-        console.log("getPostListByGroup 调用失败", res);
-      }
+    wx.showLoading({
+      title: 'Loading...',
+    })
+    getPostListByGroupId(that.data.code, curr == 0 ? '' : that.data.tabs[currTab].text).then(res => {
+      that.setData({
+        posts: res.result.data
+      })
+      wx.hideLoading();
+    }).catch(err => {
+      wx.hideLoadinng();
+      wx.showToast({
+        title: err.message,
+        icon: "none"
+      })
     })
   },
 
