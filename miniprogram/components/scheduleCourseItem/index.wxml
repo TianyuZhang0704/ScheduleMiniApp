@@ -4,5 +4,5 @@
     <text class="title-txt" decode="{{true}}">{{ courseItem.code }}&nbsp;&nbsp;{{ courseItem.courseTitle }}</text>
   </view>
   <view class="section">Section: {{ courseItem.section }}</view>
-  <view class="add">Add</view>
+  <view class="add" bindtap="onAdd">Add</view>
 </view>

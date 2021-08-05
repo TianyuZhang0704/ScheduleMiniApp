@@ -11,14 +11,17 @@ Page({
     statusHeight: 0,
     sectionType: 0,    // 0: fall, 1: winter
     courses: [],
-    myCourses: []
+    myFallCourses: [],
+    myWinterCourses: [],
+    myCurrCourses: [],
+    myAllCourses: []
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    let that = this
+    let that = this;
     wx.getSystemInfo({
       success (res) {
         let top = wx.getMenuButtonBoundingClientRect().top;
@@ -27,6 +30,9 @@ Page({
         })
         console.log(that.data.statusHeight)
       }
+    })
+    this.setData({
+      myCurrCourses: this.data.myFallCourses
     })
   },
 
@@ -71,13 +77,15 @@ Page({
 
   onChangeFall: function() {
     this.setData({
-      sectionType: 0
+      sectionType: 0,
+      myCurrCourses: this.data.myFallCourses
     })
   },
 
   onChangeWinter: function() {
     this.setData({
-      sectionType: 1
+      sectionType: 1,
+      myCurrCourses: this.data.myWinterCourses
     })
   },
 
@@ -134,6 +142,84 @@ Page({
         wx.hideLoading();
         console.log(res.data)
       } 
+    })
+  },
+
+  onAdd: function(e) {
+    let course = e.detail;
+    let tempFall = this.data.myFallCourses;
+    let tempWinter = this.data.myWinterCourses;
+    let tempAll = this.data.myAllCourses;
+    tempAll.push(course);
+    this.setData({
+      myAllCourses: tempAll
+    })
+    if (course.section == "Y") {
+      tempFall.push(course);
+      tempWinter.push(course);
+      this.setData({
+        myFallCourses: tempFall,
+        myWinterCourses: tempWinter
+      })
+      let currTab = this.data.sectionType;
+      if (currTab == 0) {
+        this.setData({
+          myCurrCourses: tempFall
+        })
+      } else {
+        this.setData({
+          myCurrCourses: tempWinter
+        })
+      }
+    } else if (course.section == "F") {
+      tempFall.push(course);
+      this.setData({
+        myFallCourses: tempFall,
+        myCurrCourses: tempFall
+      })
+    } else {
+      tempWinter.push(course);
+      this.setData({
+        myWinterCourses: tempWinter,
+        myCurrCourses: tempWinter
+      })
+    }
+  },
+
+  deleteCurr: function(e) {
+    let idx = e.currentTarget.dataset.idx;
+    console.log(idx)
+    let tempCurr = this.data.myCurrCourses;
+    let tempFall = this.data.myFallCourses;
+    let tempWinter = this.data.myWinterCourses;
+    let tempAll = this.data.myAllCourses;
+    let course = this.data.myCurrCourses[idx];
+    console.log(course)
+    tempCurr.splice(idx, 1);
+    if (course.section == "F" || course.section == "Y") {
+      for (let i = 0; i < tempFall.length; i ++) {
+        if (tempFall[i].name == course.name) {
+          tempFall.splice(i, 1);
+        }
+      }
+    }
+    if (course.section == "S" || course.section == "Y") {
+      for (let j = 0; j < tempWinter.length; j ++) {
+        if (tempWinter[j].name == course.name) {
+          tempWinter.splice(j, 1);
+        }
+      }
+    }
+    for (let k = 0; k < tempAll.length; k++) {
+      if (tempAll[k].name == course.name) {
+        tempAll.splice(k, 1);
+      }
+    }
+    this.setData({
+      myCurrCourses: tempCurr,
+      myFallCourses: tempFall,
+      myWinterCourses: tempWinter,
+      myAllCourses: tempAll
     })
   },
 

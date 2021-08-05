@@ -29,7 +29,14 @@
     <view class="tab-line" style="background: {{ sectionType == 1 ? '#6493DF' : '#B1B3BA'}};"></view>
   </view>
 </view>
-<view class="my-couses-ctn"></view>
+<view class="my-courses-ctn">
+  <block wx:for="{{ myCurrCourses }}" wx:for-item="course" wx:for-index="idx" wx:key="course">
+    <view class="my-courses-item">
+      {{ course.code }}
+      <image class="my-courses-item-cross" src="../../images/blue_cross.png" bindtap="deleteCurr" data-idx="{{ idx }}"></image>
+    </view>
+  </block>
+</view>
 <view class="links">
   <view class="view-current-schedule" bindtap="viewCurrentSchedule">View Current Schedule</view>
   <view class="auto-schedule">Auto Schedule</view>
@@ -42,6 +49,7 @@
     wx:for="{{ courses }}"
     wx:for-item="course"
     wx:key="course"
-    courseItem="{{ course }}"/>
+    courseItem="{{ course }}" 
+    bind:onAdd="onAdd" />
   </view>
 </view>

@@ -143,11 +143,33 @@
   background: #999999;
 }
 
-.my-couses-ctn {
-  background: #f2f2f2;
-  width: 690rpx;
+.my-courses-ctn {
+  background: #ffffff;
+  width: 720rpx;
   margin-left: 30rpx;
-  height: 200rpx;
+  margin-top: 20rpx;
+  margin-bottom: 40rpx;
+  /* height: 180rpx; */
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.my-courses-item {
+  margin-top: 30rpx;
+  margin-right: 53rpx;
+  padding: 2rpx 10rpx;
+  font-family: Arial;
+  font-size: 28rpx;
+  line-height: 35rpx;
+  height: 35rpx;
+  border: 1rpx solid #6493DF;
+  border-radius: 10rpx;
+  color: #6493DF;
+}
+
+.my-courses-item-cross {
+  width: 17rpx;
+  height: 17rpx;
 }
 
 .links {
