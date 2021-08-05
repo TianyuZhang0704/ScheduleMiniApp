@@ -39,7 +39,7 @@
 </view>
 <view class="links">
   <view class="view-current-schedule" bindtap="viewCurrentSchedule">View Current Schedule</view>
-  <view class="auto-schedule">Auto Schedule</view>
+  <view class="auto-schedule" bindtap="toSchedule">Auto Schedule</view>
 </view>
 <view class="search-result-ctn">
   <view class="search-result-title">Search Result</view>

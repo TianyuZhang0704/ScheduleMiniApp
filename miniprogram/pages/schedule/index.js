@@ -223,6 +223,24 @@ Page({
     })
   },
 
+  toSchedule: function() {
+    if (this.data.myAllCourses.length == 0) {
+      wx.showToast({
+        title: 'Please Select Course',
+        icon: 'none'
+      })
+      return;
+    }
+    let input = [];
+    for (let i = 0; i < this.data.myAllCourses.length; i++) {
+      input.push(this.data.myAllCourses[i].code)
+    }
+    console.log(input)
+    let scheduler = require('../../utils/scheduler.js');
+    let result = scheduler.main_func(input);
+    console.log(result);
+  },
+
   /**
    * Lifecycle function--Called when page is initially rendered
    */
