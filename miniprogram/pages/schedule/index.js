@@ -233,7 +233,7 @@ Page({
     }
     let input = [];
     for (let i = 0; i < this.data.myAllCourses.length; i++) {
-      input.push(this.data.myAllCourses[i].code)
+      input.push(this.data.myAllCourses[i].name)
     }
     console.log(input)
     let scheduler = require('../../utils/scheduler.js');
