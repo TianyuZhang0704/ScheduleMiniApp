@@ -19,7 +19,9 @@ Page({
     // var loadDataBase = require('../../utils/loadDatabase.js');
     // loadDataBase.loadDataBase(["CSC108H1-S-20219", "MAT137Y1-Y-20219", "PHY100H1-F-20219"]);
     var scheduler = require('../../utils/scheduler.js')
-    scheduler.main_func();
+    scheduler.main_func(["CSC108H1-S-20219", "MAT137Y1-Y-20219", "PHY100H1-F-20219"]);
+    // var addCSC108Reply = require('../../utils/addCSC108reply');
+    // addCSC108Reply.addCSC108Reply();
   
   },
 

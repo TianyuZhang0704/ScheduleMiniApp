@@ -4,7 +4,7 @@ var load = require('./loadDatabase.js');
 // load.loadDataBase();
 
 // global variable
-const input1  = ["CSC108H1-S-20219", "MAT137Y1-Y-20219", "PHY100H1-F-20219"];
+
 const input2  = ["CSC108H1-S-20219", "MAT137Y1-Y-20219"];
 
 const FALL = 0;
@@ -308,12 +308,13 @@ function findBestAllPlan() {
   return [result, minKey];
 }
 
-async function main_func(){
+async function main_func(input){
   let schedule = [
     {"MO": [], "TU": [], "WE": [], "TH": [], "FR": []}, 
     {"MO": [], "TU": [], "WE": [], "TH": [], "FR": []}
   ];
-  await handelInput(input1);
+  load.loadDataBase(input);
+  await handelInput(input);
   console.log("handeled input", courses);
   console.log('obj', courses.Y[0]);
   schedule = addCourse(schedule, courses.Y[0].lectOfferings[0], FALL);
@@ -322,9 +323,7 @@ async function main_func(){
   console.log('set year', conflictToYear)
   let result = await scheduler();
   console.log('schedeuler', result);
-  // setYears().then(res => {
-  //   console.log(res)
-  // })
+  return result;
 }
 
 module.exports = {
