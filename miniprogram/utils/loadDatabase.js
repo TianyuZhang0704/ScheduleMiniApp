@@ -13,20 +13,27 @@ function loadDataBase(input){
       }, 
       success (res) {
          let meetings = res.data[course].meetings;
-         let offerings = []
+         let lectOfferings = [];
+         let tutOfferings = [];
          let class_;
          for (class_ in meetings){
            let ref = {};
+           let offering = {};
            let day;
            let sche = meetings[class_].schedule;
-           for (day in sche){
-              let meetingDay = sche[day].meetingDay;
-              let startTime = sche[day].meetingStartTime.split(':')[0];
-              let endTime = sche[day].meetingEndTime.split(':')[0];
-              ref[meetingDay] = [parseInt(startTime, 10), parseInt(endTime, 10)]
-              // console.log(sche[day].meetingDay, parseInt(startTime, 10), parseInt(endTime, 10));
-           }
-           offerings.push(ref);
+           ref.meetingName = class_;
+            for (day in sche){
+                let meetingDay = sche[day].meetingDay;
+                let startTime = sche[day].meetingStartTime.split(':')[0];
+                let endTime = sche[day].meetingEndTime.split(':')[0];
+                offering[meetingDay] = [parseInt(startTime, 10), parseInt(endTime, 10)]
+            }
+            ref.offerings = offering;
+            if (meetings[class_].teachingMethod.localeCompare("LEC") === 0){
+              lectOfferings.push(ref);
+            } else {
+              tutOfferings.push(ref);
+            }
          }
 
         wx.cloud.database().collection('courses').doc(course).set({
@@ -38,7 +45,8 @@ function loadDataBase(input){
             prerequisite: res.data[course].prerequisite,
             corequisite: res.data[course].corequisite,
             meetings: meetings,
-            offerings: offerings,
+            lectOfferings: lectOfferings,
+            tutOfferings: tutOfferings,
             exclusion: res.data[course].exclusion
           }
         })
