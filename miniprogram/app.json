@@ -28,6 +28,12 @@
       "pages": [
         "index"
       ]
+    },
+    {
+      "root": "subpages/coursePlan",
+      "pages": [
+        "index"
+      ]
     }
   ],
   "tabBar": {

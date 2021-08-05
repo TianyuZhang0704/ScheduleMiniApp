@@ -1,0 +1,15 @@
+<!--miniprogram/subpages/coursePlan/index.wxml-->
+<view class="rec-plan">Recommended Plan</view>
+<view class="course-lst">
+  <block wx:for="{{ schedule }}" wx:for-item="meeting" wx:key="meeting">
+    <view class="meeting-item">
+      <view class="titles">
+        <view class="course-code">{{ meeting.courseCode }}</view>
+        <view class="meeting-name">{{ meeting.meetingName }}</view>
+      </view>
+      <view class="section">Section: {{ meeting.section }}</view>
+    </view>
+  </block>
+</view>
+
+<view class="save-btn">Save</view>

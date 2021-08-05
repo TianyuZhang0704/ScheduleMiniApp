@@ -236,9 +236,19 @@ Page({
       input.push(this.data.myAllCourses[i].name)
     }
     console.log(input)
+    wx.showLoading({
+      title: 'Loading...',
+    })
     let scheduler = require('../../utils/scheduler.js');
-    let result = scheduler.main_func(input);
-    console.log(result);
+    scheduler.main_func(input).then(res => {
+      console.log("res", res)
+      let plan = JSON.stringify(res);
+      wx.navigateTo({
+        url: '/subpages/coursePlan/index?plan=' + plan,
+      })
+      wx.hideLoading();
+    });
+    wx.hideLoading();
   },
 
   /**

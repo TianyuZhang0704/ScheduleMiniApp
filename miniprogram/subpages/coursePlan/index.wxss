@@ -1,0 +1,50 @@
+/* miniprogram/subpages/coursePlan/index.wxss */
+.rec-plan {
+  margin-top: 50rpx;
+  margin-left: 50rpx;
+  font-family: Arial;
+  font-size: 38rpx;
+  font-weight: 600;
+}
+
+.meeting-item {
+  margin-top: 20rpx;
+  margin-left: 50rpx;
+  width: 650rpx;
+  height: 130rpx;
+}
+
+.course-lst {
+  margin-top: 70rpx;
+}
+
+.titles {
+  display: flex;
+  font-family: Arial;
+  font-size: 30rpx;
+}
+
+.course-code {
+  margin-right: 20rpx;
+}
+
+.section {
+  font-family: Arial;
+  font-size: 28rpx;
+  color: #aaaaaa;
+  margin-top: 10rpx;
+}
+
+.save-btn {
+  margin-top: 50rpx;
+  margin-left: 550rpx;
+  background: #93B9F2;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 30rpx;
+  line-height: 50rpx;
+  padding-left: 25rpx;
+  height: 50rpx;
+  width: 100rpx;
+  border-radius: 10rpx;
+}
