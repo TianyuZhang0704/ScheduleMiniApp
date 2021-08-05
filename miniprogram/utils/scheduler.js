@@ -175,8 +175,12 @@ let conflictToYear = {};
 let conflictToAll = {};
 
 async function setYears() {
+  console.log("1");
   for (let i = 0; i < courses.Y.length; i++) {
+    console.log("i: ", i)
     for (let j = 0; j < courses.Y[i].lectOfferings.length; j++) {
+
+      console.log("j: ", j)
 
       let attempt = [];
       let total = 0;
@@ -194,20 +198,20 @@ async function setYears() {
         total = total + await chooseTheBest(attempt, courses.Y[k].lectOfferings, FALL)[1];
         attempt = await chooseTheBest(attempt, courses.Y[k].tutOfferings, FALL)[0];
         total = total + await chooseTheBest(attempt, courses.Y[k].tutOfferings, FALL)[1];
-
-
-        // if total conflict num not in dict, add key
-        if (!conflictToYear[total]) {
-          conflictToYear[total] = [];
-        }
-        // save to dict by corresponding conflict num
-        conflictToYear[total].push(attempt);
-        console.log(conflictToYear);
-        }
       }
+
+      // if total conflict num not in dict, add key
+      if (!conflictToYear[total]) {
+        conflictToYear[total] = [];
+      }
+      // save to dict by corresponding conflict num
+      console.log("this attempt", attempt)
+      conflictToYear[total].push(attempt);
+      console.log(conflictToYear);
     }
-    return conflictToYear;
   }
+  // return conflictToYear;
+}
 
 
 function findBestYearPlan() {
@@ -237,43 +241,87 @@ function findBestYearPlan() {
 }
 
 async function scheduler() {
-  while (Object.keys(conflictToYear).length !== 0) {
+  let [attempt, total] = findBestYearPlan();
+
+  console.log("10")
+  console.log('attempt', attempt)
+  console.log('total', total)
     
-    // start point
-    let [attempt, total] = findBestYearPlan();
-    
-    // add remaining fall courses
-    for (let i = 0; i < courses.F.length; i++) {
-      attempt = await chooseTheBest(attempt, courses.F[i].lectOfferings, FALL)[0];
-      total = total + await chooseTheBest(attempt, courses.F[i].lectOfferings, FALL)[1];
-      attempt = await chooseTheBest(attempt, courses.F[i].tutOfferings, FALL)[0];
-      total = total + await chooseTheBest(attempt, courses.F[i].tutOfferings, FALL)[1];
-    }
-
-    // add remaining year courses
-    for (let j = 0; j < courses.S.length; j++) {
-      attempt = await chooseTheBest(attempt, courses.S[j].lectOfferings, WINTER).schedule;
-      total = total + await chooseTheBest(attempt, courses.S[j].lectOfferings, WINTER)[1];
-      attempt = await chooseTheBest(attempt, courses.S[j].tutOfferings, WINTER).schedule;
-      total = total + await chooseTheBest(attempt, courses.S[j].tutOfferings, WINTER)[1];
-    }
-
-    // if no conflict, return directly
-    if (total == 0) {
-      return [attempt, total];
-    }
-
-    // if total conflict num not in dict, add key
-    if (!conflictToAll[total]) {
-      conflictToAll[total] = [];
-    }
-
-    // save to dict by corresponding conflict num
-    conflictToAll[total].push(attempt);
+  // add remaining fall courses
+  for (let i = 0; i < courses.F.length; i++) {
+    attempt = await chooseTheBest(attempt, courses.F[i].lectOfferings, FALL)[0];
+    console.log("40", attempt)
+    total = total + await chooseTheBest(attempt, courses.F[i].lectOfferings, FALL)[1];
+    attempt = await chooseTheBest(attempt, courses.F[i].tutOfferings, FALL)[0];
+    total = total + await chooseTheBest(attempt, courses.F[i].tutOfferings, FALL)[1];
   }
 
+  console.log("30")
+  console.log('attempt', attempt)
+  console.log('total', total)
+
+  // add remaining year courses
+  for (let j = 0; j < courses.S.length; j++) {
+    attempt = await chooseTheBest(attempt, courses.S[j].lectOfferings, WINTER)[0];
+    total = total + await chooseTheBest(attempt, courses.S[j].lectOfferings, WINTER)[1];
+    attempt = await chooseTheBest(attempt, courses.S[j].tutOfferings, WINTER)[0];
+    total = total + await chooseTheBest(attempt, courses.S[j].tutOfferings, WINTER)[1];
+  }
+
+    // if no conflict, return directly
+    // if (total == 0) {
+    //   return [attempt, total];
+    // }
+
+  console.log("20")
+  console.log('attempt', attempt)
+  console.log('total', total)
+
+  // if total conflict num not in dict, add key
+  if (!conflictToAll[total]) {
+    conflictToAll[total] = [];
+  }
+
+  // save to dict by corresponding conflict num
+  conflictToAll[total].push(attempt);
+  // while (Object.keys(conflictToYear).length !== 0) {
+    
+  //   // start point
+  //   let [attempt, total] = findBestYearPlan();
+    
+  //   // add remaining fall courses
+  //   for (let i = 0; i < courses.F.length; i++) {
+  //     attempt = await chooseTheBest(attempt, courses.F[i].lectOfferings, FALL)[0];
+  //     total = total + await chooseTheBest(attempt, courses.F[i].lectOfferings, FALL)[1];
+  //     attempt = await chooseTheBest(attempt, courses.F[i].tutOfferings, FALL)[0];
+  //     total = total + await chooseTheBest(attempt, courses.F[i].tutOfferings, FALL)[1];
+  //   }
+
+  //   // add remaining year courses
+  //   for (let j = 0; j < courses.S.length; j++) {
+  //     attempt = await chooseTheBest(attempt, courses.S[j].lectOfferings, WINTER)[0];
+  //     total = total + await chooseTheBest(attempt, courses.S[j].lectOfferings, WINTER)[1];
+  //     attempt = await chooseTheBest(attempt, courses.S[j].tutOfferings, WINTER)[0];
+  //     total = total + await chooseTheBest(attempt, courses.S[j].tutOfferings, WINTER)[1];
+  //   }
+
+  //   // if no conflict, return directly
+  //   // if (total == 0) {
+  //   //   return [attempt, total];
+  //   // }
+
+  //   // if total conflict num not in dict, add key
+  //   if (!conflictToAll[total]) {
+  //     conflictToAll[total] = [];
+  //   }
+
+  //   // save to dict by corresponding conflict num
+  //   conflictToAll[total].push(attempt);
+  // }
+
   // If haven't return yet, meanings no plan with 0 conflict. Then find least conflict.
-  return findBestAllPlan();
+  // return findBestAllPlan();
+  // return [-1, -1];
 }
 
 function findBestAllPlan() {
@@ -303,7 +351,14 @@ async function main_func(){
   console.log("handeled input", courses);
   console.log('obj', courses.Y[0]);
   schedule = addCourse(schedule, courses.Y[0].lectOfferings[0], FALL);
-  console.log(schedule);
+  console.log('schedule', schedule);
+  await setYears();
+  console.log('set year', conflictToYear)
+  await scheduler();
+  console.log('schedeuler', conflictToAll);
+  // setYears().then(res => {
+  //   console.log(res)
+  // })
   
 }
 
