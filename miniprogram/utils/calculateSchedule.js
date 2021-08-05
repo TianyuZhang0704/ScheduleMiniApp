@@ -1,11 +1,13 @@
+var scheduler = require('./scheduler.js');
+
 // global variable
-const input1  = ["CSC108H1-S-20219", "MAT237Y1-Y-20219", "PHY100H1-F-20219", "PHY100H1-F-20219"];
-const input2  = ["CSC108H1-S-20219", "MAT237Y1-Y-20219"];
+const input1  = ["CSC108H1-S-20219", "MAT137Y1-Y-20219", "PHY100H1-F-20219"];
+const input2  = ["CSC108H1-S-20219", "MAT137Y1-Y-20219"];
 
 const FALL = 0;
 const WINTER =1;
 const schedule = [
-  {"MO": [[9,12],[9,10],[1,10],[8,12]], "TU": [], "WE": [], "TH": [], "FR": []}, 
+  {"MO": [], "TU": [], "WE": [], "TH": [], "FR": []}, 
   {"MO": [], "TU": [], "WE": [], "TH": [], "FR": []}
 ];
 
@@ -19,58 +21,41 @@ let courses = { // handle input
   S: [],
   Y: []
 }
-// Helpers:
 
-function handelInput(input){
-  let i = 0;
-  while (i < input.length){
-    let term = input[i].split('-')[1];
-    if (term.localeCompare('F') === 0){
-      courses.F.push(input[i]);
-    } else if (term.localeCompare('S') === 0){
-      courses.S.push(input[i]);
-    } else {
-      courses.Y.push(input[i]);
-    }
-    i++;
-  }
-}
 
-async function addYearCourseToSche(code){
+// add section into attempt in term 
+async function addCourseToAttempt(attempt, code, section, term){
   await wx.cloud.database().collection('courses').doc(code)
   .get()
   .then((res) => {
-      let meetings = res.data.meetings;
-      for (let section in meetings){
-        let lesson = res.data.meetings[section]
-        if (lesson.teachingMethod.localeCompare("LEC") === 0){
-          let courseSchedule = lesson.schedule;
-          for (let day in courseSchedule){
-            let start = courseSchedule[day].meetingStartTime;
-            let end = courseSchedule[day].meetingEndTime;
-            let meetingDay = courseSchedule[day].meetingDay;
-            schedule[FALL][meetingDay].push([parseInt(start, 10), parseInt(end, 10)]);
-          }
-          // console.log(schedule);
-          break;
-        }
-
-        
-        // for (let day in off[0]){
-        //   schedule[FALL][day].push(off[0][day])
-        // }
+    let meetings = res.data.meetings;
+    let courseSchedule = meetings[section].schedule;
+    for (let day in courseSchedule){
+      let start = courseSchedule[day].meetingStartTime;
+      let end = courseSchedule[day].meetingEndTime;
+      let meetingDay = courseSchedule[day].meetingDay;
+      attempt[term][meetingDay].push([parseInt(start, 10), parseInt(end, 10)]);
       }
-
-      // console.log('schdule in addCourseToSche', schedule);
-
-    }     
+    }   
   )
 }
 
-function checkAllConflicts(term){
+async function addCourseFromAttemptToSche(code, section, term){
+  const res = await wx.cloud.database().collection('courses').doc(code).get()
+  let meetings = res.data.meetings;
+    let courseSchedule = meetings[section].schedule;
+    for (let day in courseSchedule){
+      let start = courseSchedule[day].meetingStartTime;
+      let end = courseSchedule[day].meetingEndTime;
+      let meetingDay = courseSchedule[day].meetingDay;
+      attempt[term][meetingDay].push([parseInt(start, 10), parseInt(end, 10)]);
+      }
+}
+
+function checkAllConflicts(attempt, term){
   let acc = 0
-  for (let day in schedule[term]){
-    acc += checkConflictOnDay(day, term);
+  for (let day in attempt[term]){
+    acc = acc + checkConflictOnDay(day, term);
   }
 }
 
@@ -78,7 +63,7 @@ function checkAllConflicts(term){
 // return the number of conflicts within the given day in the given term
 function checkConflictOnDay(day, term){
   let conflicts = 0;
-  let daySchedule = schedule[term][day];
+  let daySchedule = attempt[term][day];
   for (let i = 0; i < daySchedule.length - 1; i++){
     for (let j = i + 1 ; j < daySchedule.length; j++){
 
@@ -102,18 +87,49 @@ function checkConflictOnDay(day, term){
   return conflicts
 }
 
+async function choooseTheBest(courseCodes, attempt, candidates, term){
+  let plans = [];
+  let allConflicts = {};
+  for (let i = 0; i < attempt.length; i++){
+    addCourseFromAttemptToSche(courseCodes[i], attempt[i].meetingName, term);
+  }
+    // await addCourseToAttempt(attempt, candidate, section);
+    // let conflict = checkAllConflicts(attmpt,term);
+    // if (Object.keys(allConflicts).includes(conflict)){
+    //   allConflicts[conflict].push(attempt)
+    // }
+
+}
+
+async function getOfferings(code){
+  let result = await wx.cloud.database().collection('courses').doc(code).get()
+  return [result.data.lectOfferings, result.data.tutOfferings];
+}
 
 
-
-function main_func(){
-  handelInput(input1); 
-  console.log(courses);
-  // // addYearCourseToSche("MAT237Y1-Y-20219");
-  // // console.log('schedule in main', schedule);
+async function main_func(){
+  // handelInput(input1); 
+  // console.log(courses);
+  // addCourseToSche("CSC108H1-S-20219", "LEC-0101");
+  // console.log('schedule in main', schedule);
   // console.log(checkAllConflicts(FALL));
+  // await getOfferings("CSC108H1-S-20219");
+  await scheduler.handelInput(input1);
+  console.log('input handeled in main', courses);
+  let attempt = [];
+  let courseCodes = [];
+
+  // start point
+  attempt.push(courses.Y[0].lectOfferings[1]);
+  courseCodes.push(courses.Y[i].lectOfferings[0]);
+  console.log('attempt and courseCode', [attempt, courseCodes]);
+  // [attempt, courseCodes] = helper.chooseTheBest(courseCode, attempt, courses.Y[i].tutOfferings, FALL);
 
 }
 
 module.exports = {
-  main_func: main_func
+  main_func: main_func,
+  getOfferings : getOfferings,
+  choooseTheBest: choooseTheBest,
+  schedule: schedule
 }

@@ -1,3 +1,5 @@
+const scheduler = require('../../utils/scheduler');
+
 // miniprogram/pages/testPage/index.js
 Page({
 
@@ -12,7 +14,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // var calculateSchedule = require('../../utils/calculateSchedule');
+    // calculateSchedule.main_func();
+    // var loadDataBase = require('../../utils/loadDatabase.js');
+    // loadDataBase.loadDataBase(["CSC108H1-S-20219", "MAT137Y1-Y-20219", "PHY100H1-F-20219"]);
+    var scheduler = require('../../utils/scheduler.js')
+    scheduler.main_func();
+  
   },
 
   /**
