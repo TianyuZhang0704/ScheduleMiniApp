@@ -175,13 +175,13 @@ Page({
       tempFall.push(course);
       this.setData({
         myFallCourses: tempFall,
-        myCurrCourses: tempFall
+        myCurrCourses: this.data.sectionType == 0 ? tempFall : tempWinter
       })
     } else {
       tempWinter.push(course);
       this.setData({
         myWinterCourses: tempWinter,
-        myCurrCourses: tempWinter
+        myCurrCourses: this.data.sectionType == 0 ? tempFall : tempWinter
       })
     }
   },

@@ -1,5 +1,6 @@
 <!--miniprogram/subpages/coursePlan/index.wxml-->
 <view class="rec-plan">Recommended Plan</view>
+<view class="total-conflicts">Total Conflicts: {{ conflict }}</view>
 <view class="course-lst">
   <block wx:for="{{ schedule }}" wx:for-item="meeting" wx:key="meeting">
     <view class="meeting-item">
