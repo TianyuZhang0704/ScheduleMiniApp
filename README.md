@@ -37,6 +37,8 @@ Due to development time limitation, didn't test compatibility with different dev
 
 When searching courses in schedule module, it uses UofT time table's API, so VPN is needed to access data.
 
+Demonstration video: https://www.youtube.com/watch?v=CzDwzQZwAjo
+
 
 
 ## Notice
